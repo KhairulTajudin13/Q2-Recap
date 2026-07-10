@@ -1,0 +1,951 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Objective 1 – Q2 Appraisal Recap</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172026;
+      --muted: #61717d;
+      --line: #dbe4e9;
+      --soft: #f5f8fa;
+      --panel: #ffffff;
+      --teal: #008b8f;
+      --teal-dark: #006b70;
+      --blue: #2f6fbe;
+      --amber: #c98910;
+      --green: #1f8a57;
+      --shadow: 0 18px 45px rgba(26, 45, 58, 0.08);
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #eef4f6;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    /* ── Top Navigation ── */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .top-nav .container {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding-top: 0;
+      padding-bottom: 0;
+      height: 50px;
+    }
+
+    .nav-brand {
+      margin-right: 16px;
+      color: var(--teal-dark);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 6px 12px;
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-links a:hover {
+      background: #f0f5f7;
+      color: var(--ink);
+    }
+
+    .nav-links a.active {
+      background: #e6f7f7;
+      color: var(--teal-dark);
+      font-weight: 750;
+    }
+
+    .page-shell {
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(0, 139, 143, 0.10), rgba(238, 244, 246, 0) 360px),
+        repeating-linear-gradient(90deg, rgba(23, 32, 38, 0.035) 0 1px, transparent 1px 80px);
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header { padding: 42px 0 24px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(31, 138, 87, 0.12);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      padding: 30px;
+      border: 1px solid rgba(0, 139, 143, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 850px;
+      margin-bottom: 12px;
+      font-size: clamp(2.1rem, 4vw, 4.2rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .hero-copy p {
+      max-width: 780px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .hero-stat {
+      display: grid;
+      align-content: space-between;
+      min-height: 100%;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: #17313a;
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-stat span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-stat strong {
+      display: block;
+      margin: 8px 0;
+      font-size: clamp(3rem, 8vw, 5.6rem);
+      line-height: 0.95;
+    }
+
+    .hero-stat p { margin: 0; color: rgba(255, 255, 255, 0.78); }
+
+    main { padding: 0 0 56px; }
+
+    section { margin-top: 24px; }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 14px;
+    }
+
+    .section-heading h2 { margin: 0; font-size: 1.2rem; }
+
+    .section-heading p {
+      max-width: 640px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .grid { display: grid; gap: 14px; }
+    .grid.two  { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four  { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 8px 24px rgba(26, 45, 58, 0.05);
+    }
+
+    .card-pad { padding: 20px; }
+
+    .objective-card h3 { margin-bottom: 8px; font-size: 0.98rem; }
+    .objective-card p { margin-bottom: 0; color: var(--muted); }
+
+    .kpi { min-height: 128px; }
+
+    .kpi .label {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .kpi strong {
+      display: block;
+      margin: 10px 0 4px;
+      color: var(--ink);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .kpi p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+    .accent { color: var(--teal-dark); }
+
+    .highlight {
+      border-color: rgba(0, 139, 143, 0.35);
+      background: linear-gradient(180deg, #ffffff, #f0fbfb);
+    }
+
+    .metric-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+    }
+
+    .metric-panel h3 { margin-bottom: 8px; font-size: 1.04rem; }
+
+    .metric-panel .big-number {
+      display: block;
+      margin: 12px 0 6px;
+      color: var(--teal-dark);
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 820;
+      line-height: 1;
+    }
+
+    .metric-panel p { margin-bottom: 0; color: var(--muted); }
+
+    .bar-chart { display: grid; gap: 12px; }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 86px 1fr 90px;
+      gap: 12px;
+      align-items: center;
+      font-size: 0.92rem;
+    }
+
+    .bar-track {
+      height: 14px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e4edf1;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--blue));
+    }
+
+    .bar-value {
+      color: var(--muted);
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .category-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: 14px;
+    }
+
+    .pill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .pill {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: #354650;
+      font-size: 0.88rem;
+    }
+
+    .mini-bars { display: grid; gap: 10px; }
+
+    .mini-row {
+      display: grid;
+      grid-template-columns: 128px 1fr 36px;
+      gap: 10px;
+      align-items: center;
+      font-size: 0.86rem;
+    }
+
+    .mini-track { height: 9px; border-radius: 999px; background: #e7eef2; }
+    .mini-fill  { height: 100%; border-radius: inherit; background: var(--teal); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+
+    th, td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: #42535e;
+      background: #f7fafb;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .number { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .positive { color: var(--green); font-weight: 780; }
+
+    .insight {
+      padding: 15px 16px;
+      border-left: 4px solid var(--teal);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: #eefafa;
+      color: #25515a;
+      font-size: 0.94rem;
+    }
+
+    .insight strong { color: #123d45; }
+
+    .need-panel { padding: 20px; }
+
+    .need-panel p {
+      max-width: 920px;
+      margin-bottom: 14px;
+      color: #344650;
+    }
+
+    .need-panel p:last-of-type { margin-bottom: 0; }
+
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .takeaway-card {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f7fafb;
+      color: #20333d;
+      font-size: 0.9rem;
+      font-weight: 760;
+    }
+
+    .initiative-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .initiative-card {
+      display: flex;
+      min-height: 210px;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: space-between;
+      padding: 18px;
+    }
+
+    .initiative-card h3 { margin-bottom: 8px; font-size: 1.05rem; }
+    .initiative-card p { margin-bottom: 0; color: var(--muted); font-size: 0.92rem; }
+
+    .evidence-link {
+      display: inline-flex;
+      width: fit-content;
+      color: var(--teal-dark);
+      font-size: 0.86rem;
+      font-weight: 760;
+      text-decoration: none;
+    }
+
+    .evidence-link:hover { text-decoration: underline; }
+
+    .performance-note {
+      margin-top: 10px;
+      color: var(--green);
+      font-size: 0.88rem;
+      font-weight: 780;
+    }
+
+    .impact-tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      max-width: 100%;
+      padding: 8px 10px;
+      border: 1px solid rgba(0, 139, 143, 0.24);
+      border-radius: 999px;
+      background: #eefafa;
+      color: var(--teal-dark);
+      font-size: 0.82rem;
+      font-weight: 780;
+      white-space: normal;
+    }
+
+    .secondary-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .secondary-metric {
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .secondary-metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .secondary-metric strong {
+      display: block;
+      margin-top: 5px;
+      color: var(--ink);
+      font-size: 1.2rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    details { overflow: hidden; }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 18px 20px;
+      color: var(--ink);
+      font-weight: 780;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      float: right;
+      color: var(--teal-dark);
+      font-size: 1.1rem;
+    }
+
+    details[open] summary::after { content: "-"; }
+
+    .details-body { padding: 0 20px 20px; }
+
+    .tracking-grid { align-items: stretch; }
+    .tracking-grid details { height: 100%; }
+
+    .summary-card {
+      padding: 26px;
+      border-color: rgba(47, 111, 190, 0.22);
+      background: linear-gradient(180deg, #ffffff, #f4f8fd);
+    }
+
+    .summary-card p { margin-bottom: 14px; color: #344650; font-size: 1rem; }
+    .summary-card p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 980px) {
+      .hero,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .metric-panel,
+      .category-wrap,
+      .takeaway-grid,
+      .initiative-grid,
+      .secondary-metrics { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .container { width: min(100% - 22px, 1180px); }
+      header { padding-top: 24px; }
+      .hero-copy, .hero-stat, .card-pad, .metric-panel, .summary-card { padding: 18px; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 6px; }
+      .bar-row { grid-template-columns: 64px 1fr 78px; gap: 8px; }
+      .mini-row { grid-template-columns: 112px 1fr 32px; }
+      table { min-width: 680px; }
+      .table-scroll { overflow-x: auto; }
+      .nav-links a { padding: 6px 8px; font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav" aria-label="Appraisal navigation">
+    <div class="container">
+      <a class="nav-brand" href="index.html">Q2 Appraisal</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="objective1.html" class="active">Objective 1</a></li>
+        <li><a href="objective2.html">Objective 2</a></li>
+        <li><a href="objective3.html">Objective 3</a></li>
+        <li><a href="q3plan.html">Q3 Plan</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+    <header>
+      <div class="container">
+        <div class="eyebrow"><span class="status-dot"></span> Q2 Appraisal Recap</div>
+        <div class="hero">
+          <div class="hero-copy">
+            <h1>Objective 1: Tutorial Visibility &amp; Product Interest</h1>
+            <p>Increase the visibility of selected tutorials and support product interest through a focused marketing plan. This dashboard summarizes the tutorial pool, promotion tracking, view movement, channel matching, and appraisal-ready evidence from Q2.</p>
+          </div>
+          <div class="hero-stat">
+            <div>
+              <span>Strongest appraisal number</span>
+              <strong>+20.0%</strong>
+              <p>Q2 promoted tutorial view growth from 25,822 to 30,978 by 8 July, using complete tracking data.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section>
+        <div class="grid three">
+          <article class="card card-pad objective-card">
+            <h3>Objective</h3>
+            <p>Increase visibility of selected tutorials and support product interest through a focused marketing plan.</p>
+          </article>
+          <article class="card card-pad objective-card">
+            <h3>KR1</h3>
+            <p>Identify high-potential tutorials and repurpose them into promotional content for suitable marketing channels.</p>
+          </article>
+          <article class="card card-pad objective-card">
+            <h3>KR2</h3>
+            <p>Work with relevant marketing channel PICs to publish and promote content to increase tutorial views, engagement, and product-page visibility.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <h2>Tutorial Pool Summary</h2>
+          <p>86 valid tutorials were gathered, categorized, and organized as a proper tutorial pool, supporting KR1 through a more structured selection process.</p>
+        </div>
+        <div class="category-wrap">
+          <article class="card card-pad">
+            <h3>Categories Covered</h3>
+            <div class="pill-list">
+              <span class="pill">Motor Driver</span>
+              <span class="pill">Robotics</span>
+              <span class="pill">RDK</span>
+              <span class="pill">IRIV PiControl</span>
+              <span class="pill">Milesight</span>
+              <span class="pill">Raspberry Pi</span>
+              <span class="pill">NVIDIA</span>
+              <span class="pill">EDU PICO V2</span>
+              <span class="pill">CYBORC</span>
+              <span class="pill">Success Story</span>
+              <span class="pill">3D Printer</span>
+            </div>
+          </article>
+          <article class="card card-pad">
+            <h3>Department Breakdown</h3>
+            <div class="mini-bars" aria-label="Department breakdown">
+              <div class="mini-row"><span>Commerce</span><div class="mini-track"><div class="mini-fill" style="width:100%"></div></div><strong>28</strong></div>
+              <div class="mini-row"><span>International</span><div class="mini-track"><div class="mini-fill" style="width:93%"></div></div><strong>26</strong></div>
+              <div class="mini-row"><span>Ecodev</span><div class="mini-track"><div class="mini-fill" style="width:50%"></div></div><strong>14</strong></div>
+              <div class="mini-row"><span>Industry</span><div class="mini-track"><div class="mini-fill" style="width:39%"></div></div><strong>11</strong></div>
+              <div class="mini-row"><span>Edu-Partnership</span><div class="mini-track"><div class="mini-fill" style="width:18%"></div></div><strong>5</strong></div>
+            </div>
+          </article>
+        </div>
+        <article class="card card-pad" style="margin-top:14px">
+          <h3>Category Breakdown</h3>
+          <div class="mini-bars">
+            <div class="mini-row"><span>Motor Driver</span><div class="mini-track"><div class="mini-fill" style="width:100%"></div></div><strong>26</strong></div>
+            <div class="mini-row"><span>RDK</span><div class="mini-track"><div class="mini-fill" style="width:50%"></div></div><strong>13</strong></div>
+            <div class="mini-row"><span>CYBORC</span><div class="mini-track"><div class="mini-fill" style="width:31%"></div></div><strong>8</strong></div>
+            <div class="mini-row"><span>NVIDIA</span><div class="mini-track"><div class="mini-fill" style="width:31%"></div></div><strong>8</strong></div>
+            <div class="mini-row"><span>IRIV Pi Control</span><div class="mini-track"><div class="mini-fill" style="width:23%"></div></div><strong>6</strong></div>
+            <div class="mini-row"><span>EDU PICO V2</span><div class="mini-track"><div class="mini-fill" style="width:23%"></div></div><strong>6</strong></div>
+            <div class="mini-row"><span>Raspberry Pi</span><div class="mini-track"><div class="mini-fill" style="width:23%"></div></div><strong>6</strong></div>
+            <div class="mini-row"><span>Robotics</span><div class="mini-track"><div class="mini-fill" style="width:19%"></div></div><strong>5</strong></div>
+            <div class="mini-row"><span>Success Story</span><div class="mini-track"><div class="mini-fill" style="width:12%"></div></div><strong>3</strong></div>
+            <div class="mini-row"><span>Milesight</span><div class="mini-track"><div class="mini-fill" style="width:8%"></div></div><strong>2</strong></div>
+            <div class="mini-row"><span>3D Printer</span><div class="mini-track"><div class="mini-fill" style="width:4%"></div></div><strong>1</strong></div>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <h2>KPI Dashboard</h2>
+          <p>A simplified view of the main Objective 1 results for management presentation.</p>
+        </div>
+        <div class="grid four">
+          <article class="card card-pad kpi"><div class="label">Tutorials Gathered</div><strong>86</strong><p>Existing tutorials reviewed and organized into a structured content pool.</p></article>
+          <article class="card card-pad kpi highlight"><div class="label">Q2 Promoted Tutorials</div><strong>12</strong><p>Tutorials promoted in Q2 with complete Current View and Latest View tracking.</p></article>
+          <article class="card card-pad kpi"><div class="label">View Increase</div><strong>+5,156</strong><p>Additional tutorial views recorded from Q2 promoted tutorials by 8 July.</p></article>
+          <article class="card card-pad kpi"><div class="label">Growth</div><strong>+20.0%</strong><p>Overall growth from Q2 promoted tutorials with complete tracking data.</p></article>
+        </div>
+      </section>
+
+      <section>
+        <div class="grid two">
+          <article class="card metric-panel">
+            <div>
+              <h3>Overall View Growth</h3>
+              <span class="big-number">+18.6%</span>
+              <p>For tutorials with both Current View and Latest View by 8 July.</p>
+            </div>
+            <div class="bar-chart">
+              <div class="bar-row"><span>Current</span><div class="bar-track"><div class="bar-fill" style="width:84.3%"></div></div><span class="bar-value">30,406</span></div>
+              <div class="bar-row"><span>Latest</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-value">36,072</span></div>
+              <div class="insight"><strong>Total increase:</strong> +5,666 views, based on tutorials with complete and usable Current View and Latest View tracking data.</div>
+            </div>
+          </article>
+          <article class="card metric-panel highlight">
+            <div>
+              <h3>Q2 Promoted Tutorial Growth</h3>
+              <span class="big-number">+20.0%</span>
+              <p>For tutorials promoted in Q2 with complete Current View and Latest View data. This is the strongest Objective 1 appraisal number because it only uses complete tracking data.</p>
+            </div>
+            <div class="bar-chart">
+              <div class="bar-row"><span>Current</span><div class="bar-track"><div class="bar-fill" style="width:83.4%"></div></div><span class="bar-value">25,822</span></div>
+              <div class="bar-row"><span>Latest</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-value">30,978</span></div>
+              <div class="insight"><strong>Q2 promoted tutorials with complete tracking data:</strong> 12, increasing from 25,822 to 30,978 views by 8 July for a total increase of +5,156 views.</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <h2>Promotion Timeline Impact</h2>
+          <p>May was the strongest promotion period, contributing +4,423 views, around 85.8% of the Q2 promoted tutorial growth.</p>
+        </div>
+        <article class="card card-pad">
+          <div class="bar-chart">
+            <div class="bar-row"><span>April</span><div class="bar-track"><div class="bar-fill" style="width:2.6%"></div></div><span class="bar-value">1 / +114</span></div>
+            <div class="bar-row"><span>May</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-value">8 / +4,423</span></div>
+            <div class="bar-row"><span>June</span><div class="bar-track"><div class="bar-fill" style="width:14%"></div></div><span class="bar-value">3 / +619</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <h2>Top Performing Promoted Tutorials</h2>
+          <p>The best appraisal examples are RDK X5 Quick Start Guide and Battle Robot with URC10.</p>
+        </div>
+        <article class="card table-scroll">
+          <table>
+            <thead>
+              <tr><th>Date</th><th>Tutorial</th><th>View Increase</th><th>Appraisal Signal</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="number">7 May</td><td>RDK X5 Quick Start Guide</td><td class="positive number">+1,173</td><td>Strong absolute growth.</td></tr>
+              <tr><td class="number">28 May</td><td>Battle Robot with URC10</td><td class="positive number">+877</td><td>Low-visibility tutorial gained traction after promotion to a suitable community.</td></tr>
+              <tr><td class="number">11 May</td><td>Robot Battle RC Mode with HotRC</td><td class="positive number">+546</td><td>Robotics audience fit supported positive movement.</td></tr>
+              <tr><td class="number">5 May</td><td>Maker Mini Sumo with Bluetooth Controller</td><td class="positive number">+482</td><td>Competition-related content aligned with Telegram community interest.</td></tr>
+              <tr><td class="number">5 May</td><td>Top Tips for Properly Maintaining Your 7.4V LiPo Battery</td><td class="positive number">+461</td><td>Practical maintenance topic supported tutorial exposure.</td></tr>
+              <tr><td class="number">14 May</td><td>MD10-POT Conveyor Belt Control without Code</td><td class="positive number">+453</td><td>Product-focused tutorial showed useful visibility growth.</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <h2>Channel Matching Performance</h2>
+          <p>This supports KR2 because tutorials were mapped to suitable promotional channels such as Telegram communities, Cytron X, and ActiveCampaign-related planning.</p>
+        </div>
+        <article class="card table-scroll">
+          <table>
+            <thead>
+              <tr><th>Channel Group</th><th>Tutorials</th><th>View Increase</th><th>Growth</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Robotics Telegram groups</td><td class="number">5</td><td class="positive number">+2,609</td><td class="number">+30.4%</td></tr>
+              <tr><td>CytronRDK Telegram</td><td class="number">1</td><td class="positive number">+1,173</td><td class="number">+37.8%</td></tr>
+              <tr><td>Cytron X</td><td class="number">6</td><td class="positive number">+1,186</td><td class="number">+9.8%</td></tr>
+              <tr><td>3D Printer Telegram</td><td class="number">1</td><td class="positive number">+188</td><td class="number">+9.4%</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <h2>Why This Objective Was Needed</h2>
+        </div>
+        <article class="card need-panel">
+          <p>Team feedback showed that Cytron's tutorial content had strong value, but the discovery experience was still fragmented. Users from different audiences - education, industry, commerce, partnership, and customer support - needed clearer tutorial pathways, better categorization, easier navigation, and stronger product/resource hubs.</p>
+          <p>This objective helped address that gap by turning existing tutorials into a more organized and promotion-ready content pool, so selected tutorials could support product visibility, user learning, and marketing channel engagement.</p>
+          <div class="takeaway-grid" aria-label="Key takeaways">
+            <div class="takeaway-card">Better tutorial discovery</div>
+            <div class="takeaway-card">Clearer audience pathways</div>
+            <div class="takeaway-card">Stronger product content visibility</div>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <h2>Supporting Work Behind the Objective</h2>
+          <p>Beyond promoting selected tutorials, I also worked on improving the tutorial ecosystem itself. These supporting initiatives helped make tutorial content more organized, easier to discover, technically more reliable, and more ready for future marketing use.</p>
+        </div>
+        <div class="initiative-grid">
+          <article class="card initiative-card">
+            <div>
+              <h3>20+ Tutorial Revamp</h3>
+              <p>Reviewed and revamped more than 20 existing tutorials to improve their structure, technical validity, and coding accuracy.</p>
+            </div>
+            <span class="impact-tag">Improved content quality and promotion readiness</span>
+          </article>
+          <article class="card initiative-card">
+            <div>
+              <h3>Cross-Department Tutorial Feedback</h3>
+              <p>Gathered feedback from multiple departments to understand common issues around tutorial discovery, categorization, navigation, user pathways, and content gaps.</p>
+            </div>
+            <span class="impact-tag">Identified key improvement areas</span>
+          </article>
+          <article class="card initiative-card">
+            <div>
+              <h3>Tutorial Feedback Summary Sheet</h3>
+              <p>Maintained the Cytron Tutorial Feedback Summary as a centralized reference for tutorial list, category, department, promotion channel, tracking status, and view performance.</p>
+              <a class="evidence-link" href="https://docs.google.com/spreadsheets/d/1mOYEHmVp5uKuuUQU2lA6Bc5mRoyrAWTS/edit?usp=sharing&amp;ouid=100769046943584933721&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">View evidence</a>
+            </div>
+            <span class="impact-tag">Created a centralized tracking system</span>
+          </article>
+          <article class="card initiative-card">
+            <div>
+              <h3>Monthly Tutorial Check</h3>
+              <p>Conducted tutorial checks for April, May, and June to monitor tutorial condition, update progress, promotion planning, and view movement.</p>
+            </div>
+            <span class="impact-tag">Built consistent Q2 monitoring</span>
+          </article>
+          <article class="card initiative-card">
+            <div>
+              <h3>Tutorial Navigation Improvement</h3>
+              <p>Worked with IT to improve tutorial navigation so users can find relevant tutorials more easily based on product, topic, or learning needs.</p>
+            </div>
+            <span class="impact-tag">Improved tutorial discoverability</span>
+          </article>
+          <article class="card initiative-card">
+            <div>
+              <h3>Tutorial Page New Interface Mockup</h3>
+              <p>Prepared a new tutorial page interface mockup to propose a clearer and more structured tutorial browsing experience.</p>
+              <a class="evidence-link" href="https://khairultajudin13.github.io/Tutorial_Page" target="_blank" rel="noopener">View evidence</a>
+            </div>
+            <span class="impact-tag">Proposed better tutorial user journey</span>
+          </article>
+          <article class="card initiative-card">
+            <div>
+              <h3>Battle Robot with URC10 Tutorial</h3>
+              <p>Supported the Battle Robot with URC10 tutorial as part of the tutorial visibility effort. This tutorial became one of the stronger growth examples after promotion.</p>
+              <a class="evidence-link" href="https://my.cytron.io/tutorial/battle-robot-with-urc10" target="_blank" rel="noopener">View evidence</a>
+              <div class="performance-note">+877 views after promotion</div>
+            </div>
+            <span class="impact-tag">Supported product-related tutorial visibility</span>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <h2>Tracking &amp; Sales Result</h2>
+          <p>The khaitwosix tracking result provides a measurable business outcome from the tutorial visibility and campaign support work. It connects tutorial promotion efforts with product interest, clicks, orders, revenue, and gross profit.</p>
+        </div>
+        <div class="grid four">
+          <article class="card card-pad kpi"><div class="label">Total Clicks</div><strong>2,551</strong><p>Clicks recorded through the khaitwosix tracking code.</p></article>
+          <article class="card card-pad kpi highlight"><div class="label">Orders</div><strong>23</strong><p>Orders associated with the khaitwosix tracking result.</p></article>
+          <article class="card card-pad kpi"><div class="label">Revenue</div><strong>RM3,433.23</strong><p>Revenue helped generate from tracked tutorial and campaign-related traffic.</p></article>
+          <article class="card card-pad kpi"><div class="label">Gross Profit</div><strong>RM1,926.70</strong><p>Gross profit contributed from the tracked orders.</p></article>
+        </div>
+        <article class="insight" style="margin-top:14px">
+          Using the <strong>khaitwosix</strong> tracking code, the tutorial and campaign-related content generated 2,551 clicks, 23 orders, RM3,433.23 in revenue, and RM1,926.70 in gross profit. This shows that the tutorial visibility effort did not only support content engagement, but also contributed to measurable product interest and sales outcomes.
+        </article>
+        <div class="secondary-metrics">
+          <div class="secondary-metric"><span>Conversion Rate</span><strong>0.90%</strong></div>
+          <div class="secondary-metric"><span>Average Revenue per Order</span><strong>RM149.27</strong></div>
+          <div class="secondary-metric"><span>Average Gross Profit per Order</span><strong>RM83.77</strong></div>
+          <div class="secondary-metric"><span>Gross Profit Margin</span><strong>56.1%</strong></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <h2>Q2 Tutorial Add-to-Cart Interest</h2>
+          <p>This section shows how tutorial content helped generate product interest, measured by "Add All Components to Cart" events from tutorial pages during Q2 (April–June 2026).</p>
+        </div>
+        <div class="insight" style="margin-bottom:14px">
+          <strong>"Add All Components to Cart"</strong> means the customer clicked from the tutorial to add the required components into their cart. This is a useful purchase-intent signal because it shows that users were not only reading the tutorial, but also <strong>showed interest in buying the related products</strong>. This data is filtered from <strong>April 2026 to June 2026</strong> (Period: 202604–202606).
+        </div>
+        <div class="grid four">
+          <article class="card card-pad kpi">
+            <div class="label">Q2 Period</div>
+            <strong class="accent">Apr–Jun 2026</strong>
+            <p>Tutorial add-to-cart data filtered for Q2.</p>
+          </article>
+          <article class="card card-pad kpi highlight">
+            <div class="label">Top Tutorial</div>
+            <strong style="font-size:1.1rem;line-height:1.3">Battle Robot with URC10</strong>
+            <p>Highest "Add All Components to Cart" events in the filtered Q2 result.</p>
+          </article>
+          <article class="card card-pad kpi">
+            <div class="label">Top Add-to-Cart Events</div>
+            <strong>5</strong>
+            <p>Events recorded from Battle Robot with URC10.</p>
+          </article>
+          <article class="card card-pad kpi">
+            <div class="label">Purchase Intent Signal</div>
+            <strong style="font-size:1.1rem;line-height:1.3">Add to Cart</strong>
+            <p>Users showed interest in buying tutorial-related components.</p>
+          </article>
+        </div>
+        <article class="card table-scroll" style="margin-top:14px">
+          <table>
+            <thead>
+              <tr><th>Tutorial</th><th style="text-align:center">Add All Components to Cart Events</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Battle Robot with URC10</td><td class="number positive" style="text-align:center">5</td></tr>
+              <tr><td>DIY Candy Dispenser Machine Using REKA:BIT With Micro:bit</td><td class="number" style="text-align:center">2</td></tr>
+              <tr><td>Stepper Motor</td><td class="number" style="text-align:center">1</td></tr>
+              <tr><td>Line Following with MOTION:BIT and Maker Line</td><td class="number" style="text-align:center">1</td></tr>
+              <tr><td>Getting Started with ESP32 &amp; PS4 Controller: Beginner</td><td class="number" style="text-align:center">1</td></tr>
+              <tr><td>ESP32 Smart Cat House</td><td class="number" style="text-align:center">1</td></tr>
+              <tr><td>ESP32 Line Following Robot</td><td class="number" style="text-align:center">1</td></tr>
+              <tr><td>4 Wheel Robot Battle with SUMO:BIT</td><td class="number" style="text-align:center">1</td></tr>
+            </tbody>
+          </table>
+        </article>
+        <div class="insight" style="margin-top:14px">
+          <strong>Battle Robot with URC10</strong> recorded the highest Q2 add-to-cart interest with 5 "Add All Components to Cart" events. This <strong>supported product discovery</strong> because the tutorial did not only gain visibility, but also helped connect users to related product components.
+        </div>
+        <div class="insight" style="margin-top:10px">
+          <strong>Battle Robot with URC10</strong> was also one of the stronger promoted tutorial examples, gaining <strong>+877 views</strong> after promotion. Its add-to-cart result further shows that selected tutorials can <strong>support both visibility and product interest</strong> — helping connect tutorial content with product consideration without claiming confirmed purchases or guaranteed sales.
+        </div>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <h2>Detailed Tracking Tables</h2>
+          <p>Detailed supporting data for selected tutorial tracking and campaign planning.</p>
+        </div>
+        <div class="grid two tracking-grid">
+          <details class="card" open>
+            <summary>Tutorials Marked for Tracking</summary>
+            <div class="details-body table-scroll">
+              <table>
+                <thead><tr><th>Tutorial</th><th>Category</th><th>Department</th><th>Channel</th></tr></thead>
+                <tbody>
+                  <tr><td>Top Tips for Properly Maintaining Your 7.4V LiPo Battery</td><td>Robotics</td><td>Edu-Partnership</td><td>@kelabrobotsumo</td></tr>
+                  <tr><td>Maker Mini Sumo with Bluetooth Controller</td><td>Robotics</td><td>Edu-Partnership</td><td>@kelabrobotsumo</td></tr>
+                  <tr><td>RDK X5 Quick Start Guide</td><td>RDK</td><td>Commerce</td><td>CytronRDK Telegram</td></tr>
+                  <tr><td>Robot Battle RC Mode with HotRC</td><td>Robotics</td><td>Edu-Partnership</td><td>sumobit_support Telegram</td></tr>
+                  <tr><td>MD10-POT Conveyor Belt Control without Code</td><td>Motor Driver</td><td>International</td><td>Cytron X</td></tr>
+                  <tr><td>IRIV PiControl - Sending Data from Sensor to PC with MQTT</td><td>IRIV Pi Control</td><td>Industry</td><td>Not filled</td></tr>
+                  <tr><td>Conveyor Belt Control without Code using iMD16</td><td>Motor Driver</td><td>International</td><td>X</td></tr>
+                  <tr><td>Battle Robot with URC10</td><td>Robotics</td><td>Edu-Partnership</td><td>@kelabrobotsumo, stemdanrobotikmy Telegram</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+          <details class="card" open>
+            <summary>Tutorials Marked for ActiveCampaign</summary>
+            <div class="details-body table-scroll">
+              <table>
+                <thead><tr><th>Tutorial</th><th>Category</th><th>Department</th></tr></thead>
+                <tbody>
+                  <tr><td>IRIV PiControl - Sending Data from Sensor to PC with MQTT</td><td>IRIV Pi Control</td><td>Industry</td></tr>
+                  <tr><td>IRIV PiControl - View Your Dashboard from Anywhere with Tailscale</td><td>IRIV Pi Control</td><td>Industry</td></tr>
+                  <tr><td>How to access Milesight UG65 Web UI</td><td>Milesight</td><td>Industry</td></tr>
+                  <tr><td>How to connect Milesight Sensor and Gateway to Milesight cloud</td><td>Milesight</td><td>Industry</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <h2>Appraisal Summary</h2>
+        </div>
+        <article class="card summary-card">
+          <p>For Objective 1, I focused on increasing the visibility of selected tutorials by gathering and organizing 86 tutorials across key product categories such as Motor Driver, Robotics, RDK, IRIV PiControl, Milesight, Raspberry Pi, NVIDIA, EDU PICO V2, and CYBORC.</p>
+          <p>During Q2, 12 tutorials with complete tracking data were promoted through suitable channels including Telegram communities, Cytron X, and ActiveCampaign-related planning. Their total views increased from 25,822 to 30,978 by 8 July, showing an increase of 5,156 views or 20.0%.</p>
+          <p>The strongest promotion period was May, where 8 tutorials contributed 4,423 additional views. Robotics-related tutorials promoted through Telegram groups performed especially well, contributing 2,609 additional views, while the RDK X5 Quick Start Guide promoted through the CytronRDK Telegram group gained 1,173 additional views.</p>
+          <p>This shows that the selected tutorial promotion effort helped improve tutorial visibility, increase engagement, and support product-related content exposure through more focused channel planning.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Q3 Content Execution Plan – Q2 Appraisal</title>
+  <meta name="description" content="Q3 Content Execution Plan: Industrial tutorial pipeline, video integration, and ActiveCampaign coordination.">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172026;
+      --muted: #61717d;
+      --line: #dbe4e9;
+      --soft: #f5f8fa;
+      --panel: #ffffff;
+      --teal: #008b8f;
+      --teal-dark: #006b70;
+      --indigo: #4f46e5;
+      --indigo-dark: #3730a3;
+      --indigo-soft: #eef2ff;
+      --indigo-mid: #c7d2fe;
+      --green: #1f8a57;
+      --green-soft: #ecfdf5;
+      --amber: #c98910;
+      --amber-soft: #fdf3e3;
+      --red: #b91c1c;
+      --red-soft: #fef2f2;
+      --blue: #2f6fbe;
+      --blue-soft: #eff6ff;
+      --shadow: 0 8px 28px rgba(26,45,58,0.07);
+      --shadow-lg: 0 18px 45px rgba(26,45,58,0.08);
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body { margin: 0; background: #eef4f6; color: var(--ink); line-height: 1.5; }
+
+    /* ── Nav ── */
+    .top-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+    .top-nav .container { display: flex; align-items: center; gap: 4px; height: 50px; }
+    .nav-brand {
+      margin-right: 16px; color: var(--teal-dark); font-size: 0.82rem;
+      font-weight: 800; letter-spacing: 0.04em; text-decoration: none;
+      text-transform: uppercase; white-space: nowrap;
+    }
+    .nav-links { display: flex; gap: 2px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a {
+      display: block; padding: 6px 12px; border-radius: 6px; color: var(--muted);
+      font-size: 0.88rem; font-weight: 600; text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover { background: #f0f5f7; color: var(--ink); }
+    .nav-links a.active { background: var(--indigo-soft); color: var(--indigo-dark); font-weight: 750; }
+
+    /* ── Shell ── */
+    .page-shell {
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(79,70,229,0.06), rgba(238,244,246,0) 420px),
+        repeating-linear-gradient(90deg, rgba(23,32,38,0.03) 0 1px, transparent 1px 80px);
+    }
+    .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    h1, h2, h3, h4, p { margin-top: 0; }
+
+    /* ── Header ── */
+    header { padding: 38px 0 20px; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0,1.5fr) minmax(250px,0.5fr);
+      gap: 20px; align-items: stretch;
+    }
+    .hero-copy {
+      padding: 24px 28px;
+      border: 1px solid rgba(79,70,229,0.18);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.9);
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(12px);
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 9px;
+      color: var(--indigo-dark); font-size: 0.75rem; font-weight: 800;
+      letter-spacing: 0.09em; text-transform: uppercase;
+    }
+    .q3-badge {
+      padding: 2px 8px; border-radius: 6px;
+      background: var(--indigo-soft); color: var(--indigo-dark);
+      font-size: 0.7rem; font-weight: 900;
+    }
+    h1 { margin-bottom: 6px; font-size: clamp(1.65rem,3vw,2.8rem); line-height: 1.08; }
+    .hero-sub { margin-bottom: 13px; color: var(--muted); font-size: 0.93rem; }
+    .focus-box {
+      padding: 12px 14px; border-left: 3px solid var(--indigo);
+      border-radius: 0 6px 6px 0; background: var(--indigo-soft);
+      color: #2c2a6e; font-size: 0.89rem; line-height: 1.6;
+    }
+    .hero-aside { display: grid; grid-template-rows: 1fr 1fr 1fr; gap: 10px; }
+    .kpi-tile {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 13px 16px; border-radius: var(--radius); box-shadow: var(--shadow);
+    }
+    .kpi-tile.dark   { background: #1a1740; color: #fff; }
+    .kpi-tile.indigo { background: linear-gradient(135deg, var(--indigo-dark), var(--indigo)); color: #fff; }
+    .kpi-tile.soft   { background: var(--panel); border: 1px solid var(--line); }
+    .kpi-tile .kt-label { font-size: 0.69rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.65; }
+    .kpi-tile .kt-value { display: block; font-size: 1.5rem; font-weight: 900; line-height: 1.1; margin: 3px 0 1px; }
+    .kpi-tile.soft .kt-value { color: var(--indigo-dark); }
+    .kpi-tile .kt-sub { font-size: 0.76rem; opacity: 0.75; }
+
+    /* ── Sections ── */
+    main { padding: 0 0 60px; }
+    section { margin-top: 22px; }
+    .section-heading { display: flex; justify-content: space-between; gap: 16px; align-items: end; margin-bottom: 13px; }
+    .section-heading h2 { margin: 0; font-size: 1.15rem; display: flex; align-items: center; gap: 9px; }
+    .section-heading h2 .sec-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 6px;
+      background: var(--indigo-soft); color: var(--indigo-dark);
+      font-size: 0.7rem; font-weight: 900; flex-shrink: 0;
+    }
+    .section-heading p { max-width: 620px; margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+    .grid { display: grid; gap: 13px; }
+    .grid.two   { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .grid.three { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    .grid.four  { grid-template-columns: repeat(4,minmax(0,1fr)); }
+    .grid.five  { grid-template-columns: repeat(5,minmax(0,1fr)); }
+
+    .card {
+      border: 1px solid var(--line); border-radius: var(--radius);
+      background: var(--panel); box-shadow: var(--shadow);
+    }
+
+    /* ── Live Sheet Banner ── */
+    .sheet-banner {
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 24px;
+      padding: 20px 24px;
+      border: 1px solid var(--indigo-mid);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #f5f6ff, #eef2ff);
+      box-shadow: var(--shadow);
+    }
+    .sheet-banner-left { flex: 1; }
+    .sheet-banner h3 {
+      margin-bottom: 5px; font-size: 0.95rem; color: var(--indigo-dark);
+    }
+    .sheet-filename {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 11px; border-radius: 999px;
+      background: var(--indigo-dark); color: #fff;
+      font-size: 0.77rem; font-weight: 800; letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+    .sheet-banner p { margin: 0 0 10px; color: var(--muted); font-size: 0.87rem; line-height: 1.55; }
+    .sheet-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tab-pill {
+      padding: 4px 10px; border-radius: 999px;
+      background: var(--panel); border: 1px solid var(--indigo-mid);
+      color: var(--indigo-dark); font-size: 0.76rem; font-weight: 700;
+    }
+    .btn-sheet {
+      display: inline-flex; align-items: center; gap: 7px; flex-shrink: 0;
+      padding: 11px 20px; border-radius: 7px;
+      background: var(--indigo); color: #fff;
+      font-size: 0.88rem; font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(79,70,229,0.3);
+      transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+      white-space: nowrap;
+      align-self: center;
+    }
+    .btn-sheet:hover {
+      background: var(--indigo-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(79,70,229,0.38);
+    }
+
+    /* ── Target Cards ── */
+    .target-card { display: flex; flex-direction: column; transition: transform 0.18s, box-shadow 0.18s; }
+    .target-card:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(79,70,229,0.09); }
+    .tc-header { padding: 14px 17px 12px; border-bottom: 1px solid var(--line); }
+    .tc-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 0.95rem; margin-bottom: 9px;
+    }
+    .tc-icon.t1 { background: var(--indigo-soft); }
+    .tc-icon.t2 { background: #f5f3ff; }
+    .tc-icon.t3 { background: var(--green-soft); }
+    .tc-header h3 { margin: 0; font-size: 0.96rem; line-height: 1.35; }
+    .tc-body { flex: 1; padding: 12px 17px 14px; }
+    .field-label {
+      display: block; margin-bottom: 4px;
+      color: var(--indigo-dark); font-size: 0.7rem; font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .tc-goal { margin-bottom: 11px; color: #2e4450; font-size: 0.88rem; line-height: 1.55; }
+    .bullet-list { list-style: none; margin: 0 0 11px; padding: 0; display: grid; gap: 5px; }
+    .bullet-list li {
+      display: flex; align-items: flex-start; gap: 7px;
+      color: #2e4450; font-size: 0.85rem; line-height: 1.45;
+    }
+    .bullet-list li::before { content: "▸"; color: var(--indigo); font-size: 0.7rem; flex-shrink: 0; margin-top: 2px; }
+    .purpose-box {
+      padding: 8px 11px; border-radius: 5px;
+      background: var(--indigo-soft); border-left: 3px solid var(--indigo);
+      color: #2c2a6e; font-size: 0.82rem; line-height: 1.5;
+    }
+    .purpose-box strong { color: var(--indigo-dark); }
+
+    /* ── Weekly Checklist ── */
+    .day-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 11px; }
+    .day-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); overflow: hidden; box-shadow: var(--shadow); }
+    .day-header { padding: 8px 13px; background: linear-gradient(135deg, var(--indigo-dark), var(--indigo)); color: #fff; }
+    .day-header h3 { margin: 0; font-size: 0.83rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+    .day-body { padding: 11px 13px; }
+    .cl-item {
+      display: flex; align-items: flex-start; gap: 7px;
+      padding: 5px 0; border-bottom: 1px solid #f0f4f6;
+      font-size: 0.82rem; color: #2e4450; line-height: 1.4;
+    }
+    .cl-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cl-box { flex-shrink: 0; width: 14px; height: 14px; margin-top: 1px; border: 1.5px solid var(--indigo-mid); border-radius: 3px; background: #fff; }
+
+    /* Compact Checklist Blocks */
+    .checklist-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; }
+    .cl-block { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); box-shadow: var(--shadow); overflow: hidden; }
+    .cl-block-header {
+      display: flex; align-items: center; gap: 7px;
+      padding: 10px 15px; background: #f8f9ff;
+      border-bottom: 1px solid var(--indigo-mid);
+    }
+    .cl-block-header h4 { margin: 0; font-size: 0.84rem; font-weight: 800; color: var(--indigo-dark); }
+    .cl-block-body { padding: 11px 15px; display: grid; gap: 6px; }
+    .cl-row { display: flex; align-items: flex-start; gap: 7px; font-size: 0.83rem; color: #2e4450; line-height: 1.4; }
+    .cl-row .cb { flex-shrink: 0; width: 13px; height: 13px; margin-top: 2px; border: 1.5px solid var(--indigo-mid); border-radius: 3px; background: #fff; }
+
+    /* ── Tables ── */
+    .table-wrap { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); box-shadow: var(--shadow); overflow: hidden; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    .tracker-table { min-width: 1240px; }
+    .ac-table { min-width: 880px; }
+    thead { background: #f0f2ff; }
+    thead th {
+      padding: 9px 12px; text-align: left;
+      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.05em;
+      text-transform: uppercase; color: var(--indigo-dark);
+      border-bottom: 1px solid var(--indigo-mid); white-space: nowrap;
+    }
+    tbody tr { border-bottom: 1px solid var(--line); transition: background 0.1s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #fafbff; }
+    tbody td { padding: 9px 12px; color: var(--ink); vertical-align: middle; }
+    .td-muted { color: #b0bec5; font-style: italic; font-size: 0.81rem; }
+    .td-week { font-weight: 700; color: var(--indigo-dark); white-space: nowrap; }
+    .td-range { color: var(--muted); font-size: 0.81rem; white-space: nowrap; }
+    .table-note { padding: 8px 15px; background: #f8f9ff; border-top: 1px solid var(--indigo-mid); color: var(--muted); font-size: 0.8rem; }
+
+    /* Badges */
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 3px 8px; border-radius: 999px;
+      font-size: 0.73rem; font-weight: 700; white-space: nowrap;
+    }
+    .badge::before { content: ""; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; background: currentColor; }
+    .badge.planning  { background: var(--indigo-soft); color: var(--indigo-dark); border: 1px solid var(--indigo-mid); }
+    .badge.drafting  { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+    .badge.review    { background: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; }
+    .badge.ready     { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+    .badge.published { background: var(--green-soft); color: var(--green); border: 1px solid #6ee7b7; }
+    .badge.submitted { background: #fdf4ff; color: #7e22ce; border: 1px solid #e9d5ff; }
+    .badge.completed { background: #f0fdf4; color: #14532d; border: 1px solid #86efac; }
+    .badge.delayed   { background: var(--red-soft); color: var(--red); border: 1px solid #fecaca; }
+    .badge.type-tutorial { background: #eff6ff; color: var(--blue); border: 1px solid #bfdbfe; }
+    .badge.type-article  { background: var(--soft); color: #475569; border: 1px solid #cbd5e1; }
+    .badge.type-video    { background: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
+    .badge.type-case     { background: var(--amber-soft); color: var(--amber); border: 1px solid #fde68a; }
+    .badge.type-guide    { background: var(--green-soft); color: #065f46; border: 1px solid #a7f3d0; }
+    .yn-yes { color: var(--green); font-weight: 700; font-size: 0.82rem; }
+    .yn-no  { color: #b0bec5; font-size: 0.82rem; }
+
+    /* ── Monthly Checkpoint ── */
+    .month-card { overflow: hidden; }
+    .month-header {
+      padding: 12px 17px; display: flex; align-items: center;
+      justify-content: space-between; border-bottom: 1px solid var(--line); background: #f8f9ff;
+    }
+    .month-header h3 { margin: 0; font-size: 0.97rem; font-weight: 800; }
+    .month-target {
+      padding: 3px 9px; border-radius: 999px;
+      background: var(--indigo-soft); color: var(--indigo-dark);
+      font-size: 0.74rem; font-weight: 700; border: 1px solid var(--indigo-mid);
+    }
+    .month-body { padding: 13px 17px; }
+    .track-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 6px 0; border-bottom: 1px solid #f0f4f6; gap: 10px;
+    }
+    .track-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .track-label { font-size: 0.84rem; color: var(--muted); flex: 1; }
+    .track-field {
+      width: 76px; padding: 4px 7px;
+      border: 1px solid var(--indigo-mid); border-radius: 5px;
+      background: var(--indigo-soft); color: var(--indigo-dark);
+      font-size: 0.81rem; font-weight: 700; text-align: center;
+    }
+
+    /* ── KPI Cards ── */
+    .kpi-card { padding: 17px 17px 18px; display: flex; flex-direction: column; gap: 5px; }
+    .kpi-card .kc-label { font-size: 0.73rem; font-weight: 800; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+    .kpi-card .kc-target { display: block; font-size: 1.5rem; font-weight: 900; color: var(--indigo-dark); line-height: 1; }
+    .kpi-card .kc-sub { font-size: 0.79rem; color: var(--muted); }
+    .kpi-card.primary-kpi { border-color: rgba(79,70,229,0.28); background: linear-gradient(180deg,#fff,var(--indigo-soft)); }
+
+    /* ── Summary ── */
+    .summary-card { padding: 22px 25px; border-color: rgba(79,70,229,0.18); background: linear-gradient(180deg,#fff,#f8f8ff); }
+    .summary-card p { margin: 0; color: #2e3548; font-size: 0.96rem; line-height: 1.65; }
+    .insight {
+      padding: 12px 15px; border-left: 4px solid var(--indigo);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: var(--indigo-soft); color: var(--indigo-dark); font-size: 0.9rem;
+    }
+    .insight strong { color: var(--indigo-dark); }
+
+    /* ── Responsive ── */
+    @media (max-width:1100px) {
+      .day-grid { grid-template-columns: repeat(3,1fr); }
+      .grid.five { grid-template-columns: repeat(3,1fr); }
+    }
+    @media (max-width:980px) {
+      .hero, .grid.three, .grid.four, .checklist-grid { grid-template-columns: 1fr; }
+      .hero-aside { grid-template-rows: auto auto auto; }
+      .day-grid { grid-template-columns: repeat(2,1fr); }
+      .sheet-banner { flex-direction: column; }
+    }
+    @media (max-width:680px) {
+      .container { width: min(100% - 22px, 1180px); }
+      header { padding-top: 20px; }
+      h1 { font-size: 1.5rem; }
+      .hero-copy { padding: 17px 17px; }
+      .nav-links a { padding: 6px 8px; font-size: 0.81rem; }
+      .day-grid { grid-template-columns: 1fr; }
+      .grid.five { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="top-nav" aria-label="Site navigation">
+    <div class="container">
+      <a class="nav-brand" href="index.html">Q2 Appraisal</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="objective1.html">Objective 1</a></li>
+        <li><a href="objective2.html">Objective 2</a></li>
+        <li><a href="objective3.html">Objective 3</a></li>
+        <li><a href="q3plan.html" class="active">Q3 Plan</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+
+    <!-- ── Header ── -->
+    <header>
+      <div class="container">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="q3-badge">Q3</span> Content Planning</div>
+            <h1>Q3 Content Execution Plan</h1>
+            <p class="hero-sub">Industrial tutorial pipeline, video integration, and ActiveCampaign coordination — July to September 2026.</p>
+            <div class="focus-box">
+              For Q3, my focus is to build a consistent industrial content pipeline by producing 2–3 tutorials or articles per week, connecting suitable Solehin video content into YouTube and related articles, and working closely with Iffah to make sure targeted tutorials are included in ActiveCampaign.
+            </div>
+          </div>
+          <div class="hero-aside">
+            <div class="kpi-tile dark">
+              <span class="kt-label">Period</span>
+              <strong class="kt-value">Q3 2026</strong>
+              <span class="kt-sub">July – September</span>
+            </div>
+            <div class="kpi-tile indigo">
+              <span class="kt-label">Weekly Content Target</span>
+              <strong class="kt-value">2 – 3</strong>
+              <span class="kt-sub">Industrial tutorials or articles</span>
+            </div>
+            <div class="kpi-tile soft">
+              <span class="kt-label">Q3 Total Target</span>
+              <strong class="kt-value">24 – 36</strong>
+              <span class="kt-sub">Content pieces across Q3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <!-- ══════════════════════════════════
+           LIVE PLANNING SHEET
+      ══════════════════════════════════ -->
+      <section id="live-sheet">
+        <div class="section-heading">
+          <h2>📋 Live Planning Sheet</h2>
+        </div>
+        <div class="sheet-banner">
+          <div class="sheet-banner-left">
+            <h3>Q3 Execution Plan Tracker</h3>
+            <div class="sheet-filename">📊 Q3_Weekly_Checklist_Content_Plan_2026</div>
+            <p>This sheet is used to manage weekly industrial tutorial and article planning, content tracker updates, Solehin video integration, ActiveCampaign coordination with Iffah, weekly checklist progress, and monthly Q3 checkpoint review.</p>
+            <div class="sheet-tabs">
+              <span class="tab-pill">📊 Dashboard</span>
+              <span class="tab-pill">📝 Content Tracker</span>
+              <span class="tab-pill">✅ Weekly Checklist</span>
+              <span class="tab-pill">📧 ActiveCampaign Queue</span>
+              <span class="tab-pill">📋 Lists</span>
+            </div>
+          </div>
+          <a class="btn-sheet"
+             href="https://docs.google.com/spreadsheets/d/1KdwYWaZMTO-A195D6IEpewmMa7kCm0sY/edit?usp=sharing&ouid=100769046943584933721&rtpof=true&sd=true"
+             target="_blank" rel="noopener">
+            Open Q3 Planning Sheet ↗
+          </a>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════
+           1 — Q3 TARGET OVERVIEW
+      ══════════════════════════════════ -->
+      <section id="targets">
+        <div class="section-heading">
+          <h2><span class="sec-num">1</span> Q3 Target Overview</h2>
+          <p>Three focused targets to drive consistent content output and better campaign connection.</p>
+        </div>
+        <div class="grid three">
+
+          <article class="card target-card" id="t-industrial">
+            <div class="tc-header">
+              <div class="tc-icon t1">📝</div>
+              <h3>Industrial Tutorial / Article Production</h3>
+            </div>
+            <div class="tc-body">
+              <span class="field-label">Goal</span>
+              <p class="tc-goal">Produce at least 2–3 industrial tutorials or articles per week.</p>
+              <span class="field-label">Measurement</span>
+              <ul class="bullet-list">
+                <li>Minimum: 2 content pieces per week</li>
+                <li>Ideal: 3 content pieces per week</li>
+                <li>Monthly target: 8–12 content pieces</li>
+                <li>Q3 target: 24–36 content pieces</li>
+              </ul>
+              <div class="purpose-box"><strong>Purpose:</strong> Support product visibility, technical education, and marketing campaign readiness.</div>
+            </div>
+          </article>
+
+          <article class="card target-card" id="t-video">
+            <div class="tc-header">
+              <div class="tc-icon t2">🎬</div>
+              <h3>Solehin Video Integration</h3>
+            </div>
+            <div class="tc-body">
+              <span class="field-label">Goal</span>
+              <p class="tc-goal">Include suitable Solehin TikTok video content in Cytron YouTube and connect the video back into related articles.</p>
+              <span class="field-label">Measurement</span>
+              <ul class="bullet-list">
+                <li>Identify suitable videos weekly</li>
+                <li>Repurpose selected videos for YouTube</li>
+                <li>Include relevant videos inside tutorial / article pages</li>
+                <li>Track articles with video support</li>
+              </ul>
+              <div class="purpose-box"><strong>Purpose:</strong> Make industrial articles more engaging by combining written content with short-form video explanation.</div>
+            </div>
+          </article>
+
+          <article class="card target-card" id="t-ac">
+            <div class="tc-header">
+              <div class="tc-icon t3">📧</div>
+              <h3>ActiveCampaign Coordination with Iffah</h3>
+            </div>
+            <div class="tc-body">
+              <span class="field-label">Goal</span>
+              <p class="tc-goal">Make sure targeted tutorials are submitted and tracked for ActiveCampaign usage.</p>
+              <span class="field-label">Measurement</span>
+              <ul class="bullet-list">
+                <li>Identify targeted tutorials for ActiveCampaign</li>
+                <li>Prepare supporting content / copy where needed</li>
+                <li>Coordinate with Iffah for campaign inclusion</li>
+                <li>Track which tutorials are added into ActiveCampaign</li>
+                <li>Monitor clicks, engagement, or sales tracking where possible</li>
+              </ul>
+              <div class="purpose-box"><strong>Purpose:</strong> Ensure tutorial content is not only published, but also used in follow-up campaigns to support audience engagement and product interest.</div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════
+           2 — WEEKLY OPERATING RHYTHM
+      ══════════════════════════════════ -->
+      <section id="checklist">
+        <div class="section-heading">
+          <h2><span class="sec-num">2</span> Weekly Operating Rhythm</h2>
+          <p>A structured weekly workflow to keep content production, video integration, and ActiveCampaign coordination on track throughout Q3.</p>
+        </div>
+
+        <!-- Rhythm Table -->
+        <div class="table-wrap" style="margin-bottom:13px">
+          <div class="table-scroll">
+            <table style="min-width:680px">
+              <thead>
+                <tr>
+                  <th style="width:120px">Day / Period</th>
+                  <th>Main Action</th>
+                  <th style="width:230px">Expected Output</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="badge planning" style="font-size:0.75rem;padding:4px 10px">Monday</span>
+                  </td>
+                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
+                    Check Solehin TikTok video list from Google Drive and draft the 1st industrial article.
+                  </td>
+                  <td style="color:var(--green);font-size:0.85rem;font-weight:700">
+                    1st article draft started
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge type-tutorial" style="font-size:0.75rem;padding:4px 10px">Tuesday</span>
+                  </td>
+                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
+                    Upload the 1st YouTube video and publish the 1st industrial article.
+                  </td>
+                  <td style="color:var(--green);font-size:0.85rem;font-weight:700">
+                    1st video uploaded and 1st article published
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge planning" style="font-size:0.75rem;padding:4px 10px">Wednesday</span>
+                  </td>
+                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
+                    Check Solehin TikTok video list from Google Drive and draft the 2nd industrial article.
+                  </td>
+                  <td style="color:var(--green);font-size:0.85rem;font-weight:700">
+                    2nd article draft started
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge type-tutorial" style="font-size:0.75rem;padding:4px 10px">Thursday</span>
+                  </td>
+                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
+                    Upload the 2nd YouTube video and publish the 2nd industrial article.
+                  </td>
+                  <td style="color:var(--green);font-size:0.85rem;font-weight:700">
+                    2nd video uploaded and 2nd article published
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge ready" style="font-size:0.75rem;padding:4px 10px">Friday</span>
+                  </td>
+                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
+                    Draft or publish the 3rd article depending on week cycle. Update tracker. Identify suitable article for ActiveCampaign with Iffah.
+                    <div style="margin-top:6px;font-size:0.8rem;color:var(--muted)">
+                      <em>1st week cycle:</em> Draft 3rd article &nbsp;·&nbsp; <em>2nd week cycle:</em> Publish 3rd article
+                    </div>
+                  </td>
+                  <td style="color:var(--green);font-size:0.85rem;font-weight:700">
+                    Tracker updated and ActiveCampaign candidate identified
+                  </td>
+                </tr>
+                <tr style="background:#fafbff">
+                  <td>
+                    <span class="badge submitted" style="font-size:0.75rem;padding:4px 10px">Monthly</span>
+                  </td>
+                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
+                    Review total published content on YouTube, industrial articles, ActiveCampaign list, and top-performing content.
+                  </td>
+                  <td style="color:var(--indigo-dark);font-size:0.85rem;font-weight:700">
+                    Monthly checkpoint completed
+                  </td>
+                </tr>
+                <tr style="background:#f8f8ff">
+                  <td>
+                    <span class="badge completed" style="font-size:0.75rem;padding:4px 10px">Q3 End</span>
+                  </td>
+                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
+                    Summarize published pieces, video integrations, ActiveCampaign results, and lessons learned for appraisal.
+                  </td>
+                  <td style="color:var(--indigo-dark);font-size:0.85rem;font-weight:700">
+                    Q3 appraisal summary prepared
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Compact checklist blocks -->
+        <div class="checklist-grid">
+
+          <div class="cl-block">
+            <div class="cl-block-header"><span>📝</span><h4>Industrial Content Production</h4></div>
+            <div class="cl-block-body">
+              <div class="cl-row"><span class="cb"></span>Confirm 2–3 industrial tutorial / article topics</div>
+              <div class="cl-row"><span class="cb"></span>Draft Article / Tutorial 1</div>
+              <div class="cl-row"><span class="cb"></span>Draft Article / Tutorial 2</div>
+              <div class="cl-row"><span class="cb"></span>Draft Article / Tutorial 3, if possible</div>
+              <div class="cl-row"><span class="cb"></span>Check technical accuracy</div>
+              <div class="cl-row"><span class="cb"></span>Check product links</div>
+              <div class="cl-row"><span class="cb"></span>Check images / diagrams / screenshots</div>
+              <div class="cl-row"><span class="cb"></span>Publish or submit for publishing</div>
+            </div>
+          </div>
+
+          <div class="cl-block">
+            <div class="cl-block-header"><span>🎬</span><h4>Solehin Video Integration</h4></div>
+            <div class="cl-block-body">
+              <div class="cl-row"><span class="cb"></span>Check Solehin TikTok video list from Google Drive</div>
+              <div class="cl-row"><span class="cb"></span>Confirm if video can be reused for Cytron YouTube</div>
+              <div class="cl-row"><span class="cb"></span>Match video with related article / tutorial</div>
+              <div class="cl-row"><span class="cb"></span>Upload video to Cytron YouTube</div>
+              <div class="cl-row"><span class="cb"></span>Add video link / embed into article</div>
+            </div>
+          </div>
+
+          <div class="cl-block">
+            <div class="cl-block-header"><span>📧</span><h4>ActiveCampaign Coordination</h4></div>
+            <div class="cl-block-body">
+              <div class="cl-row"><span class="cb"></span>Identify targeted tutorial / article for ActiveCampaign</div>
+              <div class="cl-row"><span class="cb"></span>Prepare title, short summary, product link, and CTA</div>
+              <div class="cl-row"><span class="cb"></span>Share with Iffah</div>
+              <div class="cl-row"><span class="cb"></span>Confirm whether it is added into ActiveCampaign</div>
+              <div class="cl-row"><span class="cb"></span>Record campaign status in tracker</div>
+            </div>
+          </div>
+
+          <div class="cl-block">
+            <div class="cl-block-header"><span>📊</span><h4>Tracking</h4></div>
+            <div class="cl-block-body">
+              <div class="cl-row"><span class="cb"></span>Update published date</div>
+              <div class="cl-row"><span class="cb"></span>Update article / tutorial URL</div>
+              <div class="cl-row"><span class="cb"></span>Mark Video Included: Yes / No</div>
+              <div class="cl-row"><span class="cb"></span>Mark ActiveCampaign Included: Yes / No</div>
+              <div class="cl-row"><span class="cb"></span>Record view / click baseline</div>
+              <div class="cl-row"><span class="cb"></span>Record notes or blockers</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ══════════════════════════════════
+           3 — CONTENT TRACKER
+      ══════════════════════════════════ -->
+      <section id="tracker">
+        <div class="section-heading">
+          <h2><span class="sec-num">3</span> Content Tracker</h2>
+          <p>Main execution table synced with <strong>Q3_Weekly_Checklist_Content_Plan_2026</strong>. Update every Friday from the Content Tracker tab.</p>
+        </div>
+
+        <!-- Live status strip -->
+        <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:13px">
+          <div style="padding:12px 14px;border-radius:var(--radius);background:var(--green-soft);border:1px solid #6ee7b7;text-align:center">
+            <div style="font-size:0.7rem;font-weight:800;color:#065f46;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:3px">Published</div>
+            <div style="font-size:1.6rem;font-weight:900;color:var(--green);line-height:1">2</div>
+          </div>
+          <div style="padding:12px 14px;border-radius:var(--radius);background:var(--indigo-soft);border:1px solid var(--indigo-mid);text-align:center">
+            <div style="font-size:0.7rem;font-weight:800;color:var(--indigo-dark);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:3px">Planning</div>
+            <div style="font-size:1.6rem;font-weight:900;color:var(--indigo-dark);line-height:1">13</div>
+          </div>
+          <div style="padding:12px 14px;border-radius:var(--radius);background:#f5f3ff;border:1px solid #ddd6fe;text-align:center">
+            <div style="font-size:0.7rem;font-weight:800;color:#6d28d9;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:3px">Solehin Video</div>
+            <div style="font-size:1.6rem;font-weight:900;color:#6d28d9;line-height:1">2</div>
+          </div>
+          <div style="padding:12px 14px;border-radius:var(--radius);background:var(--amber-soft);border:1px solid #fde68a;text-align:center">
+            <div style="font-size:0.7rem;font-weight:800;color:var(--amber);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:3px">AC Pending</div>
+            <div style="font-size:1.6rem;font-weight:900;color:var(--amber);line-height:1">15</div>
+          </div>
+          <div style="padding:12px 14px;border-radius:var(--radius);background:var(--soft);border:1px solid var(--line);text-align:center">
+            <div style="font-size:0.7rem;font-weight:800;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:3px">Not in AC</div>
+            <div style="font-size:1.6rem;font-weight:900;color:var(--muted);line-height:1">15</div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <div class="table-scroll">
+            <table class="tracker-table">
+              <thead>
+                <tr>
+                  <th>Week</th>
+                  <th>Date Range</th>
+                  <th>Content Title</th>
+                  <th>Product / Category</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                  <th>Solehin Video</th>
+                  <th>YouTube Link</th>
+                  <th>AC Submitted</th>
+                  <th>AC Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- W01 — Published -->
+                <tr>
+                  <td class="td-week">W01</td>
+                  <td class="td-range">05–11 Jul</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">
+                    <a href="https://my.cytron.io/tutorial/what-is-scada-a-simple-introduction-to-industrial-monitoring" target="_blank" rel="noopener" style="color:var(--indigo);text-decoration:none">What is SCADA? A Simple Introduction to Industrial Monitoring ↗</a>
+                  </td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV Pi Control</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge published">Published</span></td>
+                  <td class="yn-yes">Yes</td>
+                  <td><a href="https://www.youtube.com/shorts/WfHgmy9Kvp8" target="_blank" rel="noopener" style="color:var(--indigo);font-size:0.82rem;font-weight:700;text-decoration:none">YT Shorts ↗</a></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <tr>
+                  <td class="td-week">W01</td>
+                  <td class="td-range">05–11 Jul</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">
+                    <a href="https://my.cytron.io/tutorial/how-ai-detects-defects-in-product-quality-inspection" target="_blank" rel="noopener" style="color:var(--indigo);text-decoration:none">How AI Detects Defects in Product Quality Inspection ↗</a>
+                  </td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV EdgeAI CM5</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge published">Published</span></td>
+                  <td class="yn-yes">Yes</td>
+                  <td><a href="https://www.youtube.com/shorts/xQniEPTFj9U" target="_blank" rel="noopener" style="color:var(--indigo);font-size:0.82rem;font-weight:700;text-decoration:none">YT Shorts ↗</a></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <!-- W02 — Planning -->
+                <tr>
+                  <td class="td-week">W02</td>
+                  <td class="td-range">12–18 Jul</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">Industry Dashboard with IRIV</td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV Pi Control</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge planning">Planning</span></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td class="td-muted">—</td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <tr>
+                  <td class="td-week">W02</td>
+                  <td class="td-range">12–18 Jul</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">Can IRIV Smarthub CM5 Create MES System</td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV SmartHub CM5</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge planning">Planning</span></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td class="td-muted">—</td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <tr>
+                  <td class="td-week">W02</td>
+                  <td class="td-range">12–18 Jul</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">IRIV Pi Control with SCADA</td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV Pi Control</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge planning">Planning</span></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td class="td-muted">—</td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <!-- W03 -->
+                <tr>
+                  <td class="td-week">W03</td>
+                  <td class="td-range">19–25 Jul</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">AI PPE Zone Monitoring</td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV EdgeAI CM5</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge planning">Planning</span></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td class="td-muted">—</td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <tr>
+                  <td class="td-week">W03</td>
+                  <td class="td-range">19–25 Jul</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">Best AI Tools for Industry</td>
+                  <td style="font-size:0.83rem;white-space:nowrap">Industrial</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge planning">Planning</span></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td class="td-muted">—</td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <!-- W04 -->
+                <tr>
+                  <td class="td-week">W04</td>
+                  <td class="td-range">26 Jul–01 Aug</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">84 Days Stress Test for IRIV Smarthub CM5</td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV SmartHub CM5</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge planning">Planning</span></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td class="td-muted">—</td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <tr>
+                  <td class="td-week">W04</td>
+                  <td class="td-range">26 Jul–01 Aug</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">IRIV Pi Control Use Cases (Weather Station)</td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV Pi Control</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge planning">Planning</span></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td class="td-muted">—</td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <tr>
+                  <td class="td-week">W04</td>
+                  <td class="td-range">26 Jul–01 Aug</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">IRIV EdgeAI CM5 Use Cases (Packaging Detection)</td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV EdgeAI CM5</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge planning">Planning</span></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td class="td-muted">—</td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <!-- W05 -->
+                <tr>
+                  <td class="td-week">W05</td>
+                  <td class="td-range">02–08 Aug</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">IRIV EdgeAI CM5 Use Cases (Sample Application)</td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV EdgeAI CM5</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge planning">Planning</span></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td class="td-muted">—</td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <tr>
+                  <td class="td-week">W05</td>
+                  <td class="td-range">02–08 Aug</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">IRIV Pi Control Use Cases (Energy Monitoring)</td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV Pi Control</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge planning">Planning</span></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td class="td-muted">—</td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <!-- W06 -->
+                <tr>
+                  <td class="td-week">W06</td>
+                  <td class="td-range">09–15 Aug</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">IRIV EdgeAI CM5 Use Cases (PPE Safety Detection)</td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV EdgeAI CM5</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge planning">Planning</span></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td class="td-muted">—</td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <tr>
+                  <td class="td-week">W06</td>
+                  <td class="td-range">09–15 Aug</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">IRIV Pi Control Use Cases (System Failure Notification)</td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV Pi Control</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge planning">Planning</span></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td class="td-muted">—</td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+                <tr>
+                  <td class="td-week">W06</td>
+                  <td class="td-range">09–15 Aug</td>
+                  <td style="font-size:0.85rem;font-weight:600;max-width:260px;line-height:1.4">IRIV SmartHub CM5 Use Cases (Digital Signage)</td>
+                  <td style="font-size:0.83rem;white-space:nowrap">IRIV SmartHub CM5</td>
+                  <td><span class="badge type-article">Article</span></td>
+                  <td><span class="badge planning">Planning</span></td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td class="td-muted">—</td>
+                  <td><span class="badge drafting" style="background:#fffbeb;color:#92400e;border-color:#fde68a">Pending</span></td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Not Submitted</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">15 content pieces planned for W01–W06. Primary source of truth: <strong>Q3_Weekly_Checklist_Content_Plan_2026 → Content Tracker tab</strong>. <a href="https://docs.google.com/spreadsheets/d/1KdwYWaZMTO-A195D6IEpewmMa7kCm0sY/edit?usp=sharing&ouid=100769046943584933721&rtpof=true&sd=true" target="_blank" rel="noopener" style="color:var(--indigo);font-weight:700;text-decoration:none">Open full tracker ↗</a></p>
+        </div>
+      </section>
+
+
+      <!-- ══════════════════════════════════
+           4 — ACTIVECAMPAIGN QUEUE
+      ══════════════════════════════════ -->
+      <section id="ac-queue">
+        <div class="section-heading">
+          <h2><span class="sec-num">4</span> ActiveCampaign Queue</h2>
+          <p>Coordinate with Iffah to ensure targeted tutorials are not only published, but also included in ActiveCampaign follow-up campaigns.</p>
+        </div>
+        <div class="table-wrap">
+          <div class="table-scroll">
+            <table class="ac-table">
+              <thead>
+                <tr>
+                  <th>Tutorial / Article Title</th>
+                  <th>Product / Category</th>
+                  <th>CTA</th>
+                  <th>Target Audience</th>
+                  <th>Submitted to Iffah</th>
+                  <th>ActiveCampaign Status</th>
+                  <th>Campaign Date</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="td-muted">—</td><td class="td-muted">—</td><td class="td-muted">—</td><td class="td-muted">—</td>
+                  <td class="yn-no">No</td><td><span class="badge planning">Planning</span></td>
+                  <td class="td-muted">—</td><td class="td-muted">—</td>
+                </tr>
+                <tr>
+                  <td class="td-muted">—</td><td class="td-muted">—</td><td class="td-muted">—</td><td class="td-muted">—</td>
+                  <td class="yn-no">No</td><td><span class="badge planning">Planning</span></td>
+                  <td class="td-muted">—</td><td class="td-muted">—</td>
+                </tr>
+                <tr>
+                  <td class="td-muted">—</td><td class="td-muted">—</td><td class="td-muted">—</td><td class="td-muted">—</td>
+                  <td class="yn-no">No</td><td><span class="badge planning">Planning</span></td>
+                  <td class="td-muted">—</td><td class="td-muted">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">Add tutorials here when ready for submission. Primary source of truth: <strong>Q3_Weekly_Checklist_Content_Plan_2026 → ActiveCampaign Queue tab</strong>.</p>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════
+           5 — MONTHLY CHECKPOINT
+      ══════════════════════════════════ -->
+      <section id="monthly">
+        <div class="section-heading">
+          <h2><span class="sec-num">5</span> Monthly Checkpoint</h2>
+          <p>Review progress at the end of each month. Target: 8–12 industrial content pieces per month.</p>
+        </div>
+        <div class="grid three">
+
+          <article class="card month-card">
+            <div class="month-header">
+              <h3>July 2026</h3>
+              <span class="month-target">Target: 8–12 pieces</span>
+            </div>
+            <div class="month-body">
+              <div class="track-row"><span class="track-label">Total published</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">Video-supported content</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">ActiveCampaign submitted</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">Best performing content</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">Blockers</span><div class="track-field">—</div></div>
+            </div>
+          </article>
+
+          <article class="card month-card">
+            <div class="month-header">
+              <h3>August 2026</h3>
+              <span class="month-target">Target: 8–12 pieces</span>
+            </div>
+            <div class="month-body">
+              <div class="track-row"><span class="track-label">Total published</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">Video-supported content</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">ActiveCampaign submitted</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">Best performing content</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">Blockers</span><div class="track-field">—</div></div>
+            </div>
+          </article>
+
+          <article class="card month-card">
+            <div class="month-header">
+              <h3>September 2026</h3>
+              <span class="month-target">Target: 8–12 pieces</span>
+            </div>
+            <div class="month-body">
+              <div class="track-row"><span class="track-label">Total published</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">Video-supported content</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">ActiveCampaign submitted</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">Best performing content</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">Blockers</span><div class="track-field">—</div></div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════
+           6 — KPI SUMMARY
+      ══════════════════════════════════ -->
+      <section id="kpi">
+        <div class="section-heading">
+          <h2><span class="sec-num">6</span> Q3 Success KPI Summary</h2>
+          <p>Key targets to evaluate content execution progress at end of Q3.</p>
+        </div>
+        <div class="grid five">
+          <article class="card kpi-card primary-kpi">
+            <span class="kc-label">Industrial Tutorials / Articles</span>
+            <strong class="kc-target">24–36</strong>
+            <span class="kc-sub">pieces across Q3</span>
+          </article>
+          <article class="card kpi-card">
+            <span class="kc-label">Video-supported Articles</span>
+            <strong class="kc-target">8–12</strong>
+            <span class="kc-sub">with Solehin video embedded</span>
+          </article>
+          <article class="card kpi-card">
+            <span class="kc-label">Tutorials Submitted to AC</span>
+            <strong class="kc-target">8–12+</strong>
+            <span class="kc-sub">coordinated with Iffah</span>
+          </article>
+          <article class="card kpi-card">
+            <span class="kc-label">Monthly Checkpoints</span>
+            <strong class="kc-target">3</strong>
+            <span class="kc-sub">July, August, September</span>
+          </article>
+          <article class="card kpi-card">
+            <span class="kc-label">Weekly Tracker Updates</span>
+            <strong class="kc-target">12–13</strong>
+            <span class="kc-sub">Friday updates across Q3</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════
+           7 — FOCUS SUMMARY
+      ══════════════════════════════════ -->
+      <section id="summary">
+        <div class="section-heading">
+          <h2><span class="sec-num">7</span> Q3 Focus Summary</h2>
+        </div>
+        <article class="card summary-card">
+          <p>For Q3, my focus is to build from the Q2 tutorial visibility work by producing consistent industrial tutorial and article content, connecting Solehin's video content with related articles, and working closely with Iffah to ensure targeted tutorials are included in ActiveCampaign. The latest planning sheet, <strong>Q3_Weekly_Checklist_Content_Plan_2026</strong>, will be used as the main tracker for weekly progress, content execution, and campaign coordination.</p>
+        </article>
+        <div class="insight" style="margin-top:11px">
+          Q3 targets are structured to be <strong>measurable and trackable</strong> — weekly checklist updated every Friday, content tracker as the main execution log, and monthly checkpoint reviews for July, August, and September.
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

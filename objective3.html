@@ -1,0 +1,661 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Objective 3 – Q2 Appraisal Recap</title>
+  <meta name="description" content="Objective 3: Education Team Sales & Visibility Support — Q2 Appraisal Recap.">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172026;
+      --muted: #61717d;
+      --line: #dbe4e9;
+      --soft: #f5f8fa;
+      --panel: #ffffff;
+      --teal: #008b8f;
+      --teal-dark: #006b70;
+      --blue: #2f6fbe;
+      --amber: #c98910;
+      --amber-dark: #9a6800;
+      --amber-soft: #fdf3e3;
+      --amber-mid: #fde8b8;
+      --green: #1f8a57;
+      --shadow: 0 18px 45px rgba(26, 45, 58, 0.08);
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #eef4f6;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    /* ── Navigation ── */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .top-nav .container {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding-top: 0;
+      padding-bottom: 0;
+      height: 50px;
+    }
+
+    .nav-brand {
+      margin-right: 16px;
+      color: var(--teal-dark);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 6px 12px;
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-links a:hover { background: #f0f5f7; color: var(--ink); }
+
+    .nav-links a.active {
+      background: #e6f7f7;
+      color: var(--teal-dark);
+      font-weight: 750;
+    }
+
+    /* ── Page Shell ── */
+    .page-shell {
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(201, 137, 16, 0.07), rgba(238, 244, 246, 0) 380px),
+        repeating-linear-gradient(90deg, rgba(23, 32, 38, 0.035) 0 1px, transparent 1px 80px);
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    /* ── Header ── */
+    header { padding: 42px 0 24px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      padding: 28px 32px;
+      border: 1px solid rgba(201, 137, 16, 0.22);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--amber-dark);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .obj-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--amber-soft);
+      color: var(--amber-dark);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: clamp(1.7rem, 3.2vw, 3rem);
+      line-height: 1.07;
+    }
+
+    .hero-copy > p {
+      max-width: 680px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .hero-aside {
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+
+    .aside-tile {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 22px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .aside-tile.dark  { background: #2a1f0a; color: #fff; }
+    .aside-tile.amber { background: linear-gradient(135deg, #a07200, #c98910); color: #fff; }
+
+    .aside-tile .at-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.68;
+    }
+
+    .aside-tile .at-value {
+      display: block;
+      margin: 6px 0 2px;
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .aside-tile .at-desc { font-size: 0.82rem; opacity: 0.78; }
+
+    /* ── Main ── */
+    main { padding: 0 0 64px; }
+    section { margin-top: 24px; }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 14px;
+    }
+
+    .section-heading h2 { margin: 0; font-size: 1.2rem; }
+
+    .section-heading p {
+      max-width: 640px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .grid { display: grid; gap: 14px; }
+    .grid.two   { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 8px 24px rgba(26, 45, 58, 0.05);
+    }
+
+    /* ── KR / Objective row ── */
+    .obj-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .obj-item { padding: 18px 20px; }
+    .obj-item h3 { margin-bottom: 6px; font-size: 0.94rem; }
+    .obj-item p  { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+    /* ── Project Cards ── */
+    .project-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card-header {
+      padding: 16px 18px 13px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .proj-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px; height: 34px;
+      margin-bottom: 10px;
+      border-radius: 9px;
+      font-size: 1rem;
+    }
+
+    .proj-icon.e1 { background: #fde8b8; }
+    .proj-icon.e2 { background: #e3f5f5; }
+    .proj-icon.e3 { background: #e6f0fb; }
+    .proj-icon.e4 { background: #f0ebfb; }
+
+    .project-card-header h3 {
+      margin: 0;
+      font-size: 0.99rem;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    .project-card-body {
+      flex: 1;
+      padding: 13px 18px 10px;
+    }
+
+    .project-card-body p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.89rem;
+      line-height: 1.6;
+    }
+
+    /* ── Support area tags ── */
+    .areas-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .areas-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .area-tag {
+      padding: 4px 9px;
+      border: 1px solid var(--amber-mid);
+      border-radius: 999px;
+      background: var(--amber-soft);
+      color: var(--amber-dark);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* ── Impact line ── */
+    .impact-line {
+      padding: 9px 12px;
+      border-radius: 6px;
+      background: #fffbf0;
+      border-left: 3px solid var(--amber);
+      color: #4a3200;
+      font-size: 0.85rem;
+      margin: 0;
+    }
+
+    .impact-line strong { color: var(--amber-dark); }
+
+    /* ── Card footer ── */
+    .project-card-footer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 10px 18px 14px;
+    }
+
+    .contrib-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 11px;
+      border: 1px solid rgba(201, 137, 16, 0.28);
+      border-radius: 999px;
+      background: var(--amber-soft);
+      color: var(--amber-dark);
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .contrib-tag::before {
+      content: "";
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+
+    .evidence-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--amber-dark);
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .evidence-link:hover { text-decoration: underline; }
+
+    /* ── KR Support ── */
+    .kr-support-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .kr-support-card { padding: 20px 22px; }
+
+    .kr-num {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      background: var(--amber-soft);
+      color: var(--amber-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .kr-support-card p {
+      margin: 0;
+      color: #2e4450;
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    /* ── Insight ── */
+    .insight {
+      padding: 14px 16px;
+      border-left: 4px solid var(--amber);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: #fffbf0;
+      color: #4a3200;
+      font-size: 0.93rem;
+    }
+
+    .insight strong { color: var(--amber-dark); }
+
+    /* ── Summary card ── */
+    .summary-card {
+      padding: 26px 28px;
+      border-color: rgba(201, 137, 16, 0.2);
+      background: linear-gradient(180deg, #ffffff, #fffdf5);
+    }
+
+    .summary-card p {
+      margin-bottom: 14px;
+      color: #2e3820;
+      font-size: 0.97rem;
+      line-height: 1.65;
+    }
+
+    .summary-card p:last-child { margin-bottom: 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 980px) {
+      .hero,
+      .grid.two,
+      .grid.three,
+      .kr-support-grid,
+      .obj-row { grid-template-columns: 1fr; }
+
+      .hero-aside { grid-template-rows: auto auto; }
+    }
+
+    @media (max-width: 680px) {
+      .container { width: min(100% - 22px, 1180px); }
+      header { padding-top: 24px; }
+      h1 { font-size: 1.5rem; }
+      .hero-copy { padding: 18px 20px; }
+      .nav-links a { padding: 6px 8px; font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ── Navigation ── -->
+  <nav class="top-nav" aria-label="Appraisal navigation">
+    <div class="container">
+      <a class="nav-brand" href="index.html">Q2 Appraisal</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="objective1.html">Objective 1</a></li>
+        <li><a href="objective2.html">Objective 2</a></li>
+        <li><a href="objective3.html" class="active">Objective 3</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+    <!-- ── Header ── -->
+    <header>
+      <div class="container">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="obj-badge">O3</span> Q2 Appraisal Recap</div>
+            <h1>Objective 3: Education Team Sales &amp; Visibility Support</h1>
+            <p>Support Education team sales and visibility efforts through suitable promotional channels and technical content support. This page summarizes the education projects and initiatives supported during Q2.</p>
+          </div>
+          <div class="hero-aside">
+            <div class="aside-tile dark">
+              <span class="at-label">Weightage</span>
+              <strong class="at-value">15%</strong>
+              <span class="at-desc">Supporting objective — complementing the primary Objective 1 focus.</span>
+            </div>
+            <div class="aside-tile amber">
+              <span class="at-label">Projects Supported</span>
+              <strong class="at-value">4</strong>
+              <span class="at-desc">Education campaigns, events, and content initiatives contributed to in Q2.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <!-- ── Objective & KR ── -->
+      <section>
+        <div class="section-heading">
+          <h2>Objective &amp; Key Results</h2>
+        </div>
+        <div class="obj-row">
+          <article class="card obj-item">
+            <h3>Objective</h3>
+            <p>Support Education team sales and visibility efforts through suitable promotional channels and technical content support.</p>
+          </article>
+          <article class="card obj-item">
+            <h3>KR1</h3>
+            <p>Help identify suitable channels and activities to promote Education-related products, campaigns, or events.</p>
+          </article>
+          <article class="card obj-item">
+            <h3>KR2</h3>
+            <p>Support the execution of these efforts through channels such as TikTok Live, exhibitions, social media, or other suitable marketing activities.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ── Education Support Projects ── -->
+      <section>
+        <div class="section-heading">
+          <h2>Education Support Projects</h2>
+          <p>Four education-related projects were supported during Q2, covering product launches, competitions, STEM events, and technical content.</p>
+        </div>
+        <div class="grid two">
+
+          <!-- Card 1: STRIKER:BIT -->
+          <article class="card project-card" id="proj-strikerbit">
+            <div class="project-card-header">
+              <div class="proj-icon e1">🏆</div>
+              <h3>STRIKER:BIT Launching Support</h3>
+            </div>
+            <div class="project-card-body">
+              <p>Supported the STRIKER:BIT launch by contributing to multiple launch-related materials and execution needs. My support included infographic preparation, technical support, exhibition support, tutorial support, marketing material preparation, and teaser poster creation.</p>
+              <span class="areas-label">Support Areas</span>
+              <div class="areas-list">
+                <span class="area-tag">Infographic</span>
+                <span class="area-tag">Technical support</span>
+                <span class="area-tag">Exhibition support</span>
+                <span class="area-tag">Tutorial support</span>
+                <span class="area-tag">Marketing material</span>
+                <span class="area-tag">Teaser poster</span>
+              </div>
+              <div class="impact-line">
+                <strong>Impact:</strong> Helped strengthen STRIKER:BIT launch readiness and visibility as an education-focused robotics competition kit.
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <span class="contrib-tag">Product launch support</span>
+              <a class="evidence-link" href="https://my.cytron.io/p-strikerbit-soccer-competition-kit" target="_blank" rel="noopener">View product →</a>
+            </div>
+          </article>
+
+          <!-- Card 2: PIRC -->
+          <article class="card project-card" id="proj-pirc">
+            <div class="project-card-header">
+              <div class="proj-icon e2">🤝</div>
+              <h3>PIRC Participant and Exhibition Support</h3>
+            </div>
+            <div class="project-card-body">
+              <p>Participated in the PIRC Sumo and Soccer competition while also supporting Cytron's exhibition booth. During the exhibition, I helped promote STRIKER:BIT and MDDRC5 to visitors and robotics-related audiences.</p>
+              <span class="areas-label">Support Areas</span>
+              <div class="areas-list">
+                <span class="area-tag">Sumo competition</span>
+                <span class="area-tag">Soccer competition</span>
+                <span class="area-tag">Exhibition booth support</span>
+                <span class="area-tag">STRIKER:BIT promotion</span>
+                <span class="area-tag">MDDRC5 promotion</span>
+              </div>
+              <div class="impact-line">
+                <strong>Impact:</strong> Helped support Cytron's visibility in the robotics competition community and provided direct product exposure for STRIKER:BIT and MDDRC5.
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <span class="contrib-tag">Competition and exhibition support</span>
+            </div>
+          </article>
+
+          <!-- Card 3: JPN Karnival STEM -->
+          <article class="card project-card" id="proj-jpnkarnival">
+            <div class="project-card-header">
+              <div class="proj-icon e3">🏫</div>
+              <h3>JPN Karnival STEM — SMJK Jit Sin II</h3>
+            </div>
+            <div class="project-card-body">
+              <p>Supported the JPN Karnival STEM event at SMJK Jit Sin II as an exhibitor. My role focused on helping promote STRIKER:BIT to the school and STEM education audience.</p>
+              <span class="areas-label">Support Areas</span>
+              <div class="areas-list">
+                <span class="area-tag">Exhibition booth support</span>
+                <span class="area-tag">STRIKER:BIT promotion</span>
+                <span class="area-tag">School-level STEM engagement</span>
+              </div>
+              <div class="impact-line">
+                <strong>Impact:</strong> Helped increase STRIKER:BIT visibility among teachers, students, and STEM event participants.
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <span class="contrib-tag">STEM outreach support</span>
+            </div>
+          </article>
+
+          <!-- Card 4: Vibe Coding -->
+          <article class="card project-card" id="proj-vibecoding">
+            <div class="project-card-header">
+              <div class="proj-icon e4">🤖</div>
+              <h3>Vibe Coding / Cytron AI Coding Pack — URC10</h3>
+            </div>
+            <div class="project-card-body">
+              <p>Supported the Vibe Coding / Cytron AI Coding Pack initiative for URC10 by preparing an AI coding pack and sharing it with the community for testing. This helped gather early user testing and feedback for future improvement.</p>
+              <span class="areas-label">Support Areas</span>
+              <div class="areas-list">
+                <span class="area-tag">URC10 technical content</span>
+                <span class="area-tag">AI Coding Pack preparation</span>
+                <span class="area-tag">Community testing</span>
+                <span class="area-tag">Feedback collection</span>
+              </div>
+              <div class="impact-line">
+                <strong>Impact:</strong> Helped prepare URC10-related AI coding materials for future education usage and community-based validation.
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <span class="contrib-tag">Technical content and community testing support</span>
+              <a class="evidence-link" href="https://github.com/KhairulTajudin13/Cytron-AI-Coding-Pack" target="_blank" rel="noopener">View on GitHub →</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ── How This Supports the Key Results ── -->
+      <section>
+        <div class="section-heading">
+          <h2>How This Supports the Key Results</h2>
+          <p>Each project contributed directly to the two Objective 3 key results.</p>
+        </div>
+        <div class="kr-support-grid">
+          <article class="card kr-support-card">
+            <span class="kr-num">KR1</span>
+            <p>Supported suitable Education-related promotional channels and activities, including product launching, exhibitions, robotics competitions, STEM events, and community testing.</p>
+          </article>
+          <article class="card kr-support-card">
+            <span class="kr-num">KR2</span>
+            <p>Supported execution through infographics, technical input, tutorial support, marketing materials, teaser posters, exhibition work, competition participation, and AI coding pack preparation.</p>
+          </article>
+        </div>
+        <div class="insight" style="margin-top:14px">
+          These four projects show that Objective 3 was supported through a <strong>range of contribution types</strong> — from product launch materials and competition participation, to STEM event exhibition work and technical coding pack preparation — each contributing to the Education team's visibility and engagement goals during Q2.
+        </div>
+      </section>
+
+      <!-- ── Appraisal Summary ── -->
+      <section>
+        <div class="section-heading">
+          <h2>Objective 3 Appraisal Summary</h2>
+        </div>
+        <article class="card summary-card">
+          <p>For Objective 3, I supported the Education team's sales and visibility efforts through selected promotional channels, event support, and technical content execution. This included STRIKER:BIT launch support, PIRC competition and exhibition involvement, JPN Karnival STEM exhibition support at SMJK Jit Sin II, and Vibe Coding / Cytron AI Coding Pack support for URC10.</p>
+          <p>My contribution covered both marketing and technical support, including infographic preparation, teaser poster creation, tutorial support, marketing materials, product demonstration support, exhibition booth support, competition participation, and AI coding pack preparation for community testing. These efforts helped strengthen Education team visibility, support product awareness, and create more hands-on engagement with teachers, students, robotics participants, and community users during Q2.</p>
+        </article>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
+
