@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Q3 Content Execution Plan – Q2 Appraisal</title>
-  <meta name="description" content="Q3 Content Execution Plan: Industrial tutorial pipeline, video integration, and ActiveCampaign coordination.">
+  <meta name="description" content="Q3 Content Execution Plan: Weekly tutorial/article content production and tutorial ecosystem improvement — 2 objectives, July to September 2026.">
   <style>
     :root {
       color-scheme: light;
@@ -101,7 +101,7 @@
       border-radius: 0 6px 6px 0; background: var(--indigo-soft);
       color: #2c2a6e; font-size: 0.89rem; line-height: 1.6;
     }
-    .hero-aside { display: grid; grid-template-rows: 1fr 1fr 1fr; gap: 10px; }
+    .hero-aside { display: grid; grid-template-rows: 1fr 1fr 1fr 1fr; gap: 10px; }
     .kpi-tile {
       display: flex; flex-direction: column; justify-content: center;
       padding: 13px 16px; border-radius: var(--radius); box-shadow: var(--shadow);
@@ -215,21 +215,40 @@
     }
     .purpose-box strong { color: var(--indigo-dark); }
 
-    /* ── Weekly Checklist ── */
-    .day-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 11px; }
-    .day-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); overflow: hidden; box-shadow: var(--shadow); }
-    .day-header { padding: 8px 13px; background: linear-gradient(135deg, var(--indigo-dark), var(--indigo)); color: #fff; }
-    .day-header h3 { margin: 0; font-size: 0.83rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
-    .day-body { padding: 11px 13px; }
-    .cl-item {
-      display: flex; align-items: flex-start; gap: 7px;
-      padding: 5px 0; border-bottom: 1px solid #f0f4f6;
-      font-size: 0.82rem; color: #2e4450; line-height: 1.4;
+    /* ── Weekly Checklist Table ── */
+    .checklist-table { min-width: 1100px; }
+    .checklist-table thead th { white-space: nowrap; }
+    .tick-cell { text-align: center; font-size: 1.05rem; }
+    .td-day {
+      font-weight: 800; font-size: 0.8rem; letter-spacing: 0.04em;
+      text-transform: uppercase; white-space: nowrap;
     }
-    .cl-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .cl-box { flex-shrink: 0; width: 14px; height: 14px; margin-top: 1px; border: 1.5px solid var(--indigo-mid); border-radius: 3px; background: #fff; }
-
-    /* Compact Checklist Blocks */
+    .td-day.monday    { color: var(--indigo-dark); }
+    .td-day.tuesday   { color: #0369a1; }
+    .td-day.wednesday { color: var(--indigo-dark); }
+    .td-day.thursday  { color: #0369a1; }
+    .td-day.friday    { color: #166534; }
+    .td-day.monthly   { color: #7e22ce; }
+    .td-day.q3end     { color: #065f46; }
+    .period-group td { border-top: 2px solid var(--indigo-mid); }
+    .period-group-monthly td { border-top: 2px solid #e9d5ff; }
+    .period-group-q3end td { border-top: 2px solid #a7f3d0; }
+    .tick-legend {
+      display: flex; align-items: center; gap: 20px;
+      padding: 9px 16px; background: #f8f9ff;
+      border-top: 1px solid var(--indigo-mid);
+      font-size: 0.82rem; color: var(--muted);
+    }
+    .tick-legend span { display: flex; align-items: center; gap: 6px; }
+    .tick-legend strong { color: var(--ink); }
+    .obj-badge {
+      display: inline-block; padding: 2px 8px; border-radius: 999px;
+      font-size: 0.71rem; font-weight: 800; white-space: nowrap;
+    }
+    .obj-badge.obj1 { background: var(--indigo-soft); color: var(--indigo-dark); border: 1px solid var(--indigo-mid); }
+    .obj-badge.obj2 { background: var(--green-soft); color: #065f46; border: 1px solid #6ee7b7; }
+    .obj-badge.both { background: #fdf4ff; color: #7e22ce; border: 1px solid #e9d5ff; }
+    /* Compact Checklist Blocks (kept for backward compat but not used in new section) */
     .checklist-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; }
     .cl-block { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); box-shadow: var(--shadow); overflow: hidden; }
     .cl-block-header {
@@ -377,9 +396,9 @@
           <div class="hero-copy">
             <div class="eyebrow"><span class="q3-badge">Q3</span> Content Planning</div>
             <h1>Q3 Content Execution Plan</h1>
-            <p class="hero-sub">Industrial tutorial pipeline, video integration, and ActiveCampaign coordination — July to September 2026.</p>
+            <p class="hero-sub">Weekly tutorial/article production, video integration, ActiveCampaign coordination, and tutorial ecosystem improvement — July to September 2026.</p>
             <div class="focus-box">
-              For Q3, my focus is to build a consistent industrial content pipeline by producing 2–3 tutorials or articles per week, connecting suitable Solehin video content into YouTube and related articles, and working closely with Iffah to make sure targeted tutorials are included in ActiveCampaign.
+              For Q3, my focus is divided into 2 objectives. Objective 1 carries 80% weightage and focuses on producing 3 tutorials/articles per week, with industrial content as the main priority while still covering other relevant Cytron topics. Objective 2 carries 20% weightage and focuses on improving Cytron's existing tutorial ecosystem through tutorial curation, weekly checks, content improvement, and nurturing funnel readiness.
             </div>
           </div>
           <div class="hero-aside">
@@ -390,13 +409,18 @@
             </div>
             <div class="kpi-tile indigo">
               <span class="kt-label">Weekly Content Target</span>
-              <strong class="kt-value">2 – 3</strong>
-              <span class="kt-sub">Industrial tutorials or articles</span>
+              <strong class="kt-value">3</strong>
+              <span class="kt-sub">Tutorials or articles per week</span>
             </div>
             <div class="kpi-tile soft">
-              <span class="kt-label">Q3 Total Target</span>
-              <strong class="kt-value">24 – 36</strong>
-              <span class="kt-sub">Content pieces across Q3</span>
+              <span class="kt-label">Obj 1 Weightage</span>
+              <strong class="kt-value">80%</strong>
+              <span class="kt-sub">Content production focus</span>
+            </div>
+            <div class="kpi-tile soft">
+              <span class="kt-label">Obj 2 Weightage</span>
+              <strong class="kt-value">20%</strong>
+              <span class="kt-sub">Tutorial ecosystem improvement</span>
             </div>
           </div>
         </div>
@@ -434,31 +458,132 @@
       </section>
 
       <!-- ══════════════════════════════════
-           1 — Q3 TARGET OVERVIEW
+           1 — Q3 OBJECTIVES OVERVIEW
+      ══════════════════════════════════ -->
+      <section id="objectives">
+        <div class="section-heading">
+          <h2><span class="sec-num">1</span> Q3 Objectives Overview</h2>
+          <p>2 objectives for Q3, weighted by priority and impact.</p>
+        </div>
+
+        <!-- Objective 1 — Primary (80%) -->
+        <div style="margin-bottom:16px;border:2px solid rgba(79,70,229,0.35);border-radius:var(--radius);background:linear-gradient(135deg,#fff,var(--indigo-soft));box-shadow:var(--shadow-lg);overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 22px 14px;border-bottom:1px solid rgba(79,70,229,0.18);background:linear-gradient(135deg,var(--indigo-dark),var(--indigo))">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;font-size:1.1rem">📝</div>
+              <div>
+                <div style="font-size:0.68rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:2px">Primary Objective</div>
+                <h3 style="margin:0;font-size:1.05rem;font-weight:900;color:#fff">Objective 1: Weekly Tutorial / Article Content Production</h3>
+              </div>
+            </div>
+            <div style="flex-shrink:0;padding:6px 18px;border-radius:999px;background:rgba(255,255,255,0.18);border:1.5px solid rgba(255,255,255,0.35);color:#fff;font-size:0.85rem;font-weight:900;letter-spacing:0.03em;white-space:nowrap">80% Weightage</div>
+          </div>
+          <div style="padding:18px 22px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px">
+            <div>
+              <div style="font-size:0.7rem;font-weight:800;color:var(--indigo-dark);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:7px">Objective</div>
+              <p style="margin:0 0 14px;color:#2e3548;font-size:0.92rem;line-height:1.6">Produce consistent tutorial/article content across Cytron's key focus areas, with industrial content as the main priority while still supporting other relevant topics.</p>
+              <div style="font-size:0.7rem;font-weight:800;color:var(--indigo-dark);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:9px">Key Results</div>
+              <div style="display:grid;gap:9px">
+                <div style="display:flex;gap:10px;align-items:flex-start">
+                  <span style="flex-shrink:0;padding:2px 8px;border-radius:5px;background:var(--indigo-dark);color:#fff;font-size:0.7rem;font-weight:800">KR1</span>
+                  <p style="margin:0;font-size:0.88rem;color:#2e4450;line-height:1.5">Produce 3 tutorials/articles per week, with industrial content as the main focus and at least 1 article per week covering other relevant Cytron topics.</p>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-start">
+                  <span style="flex-shrink:0;padding:2px 8px;border-radius:5px;background:var(--indigo-dark);color:#fff;font-size:0.7rem;font-weight:800">KR2</span>
+                  <p style="margin:0;font-size:0.88rem;color:#2e4450;line-height:1.5">Repurpose suitable Solehin TikTok videos into Cytron YouTube content and include them in related articles to improve engagement.</p>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-start">
+                  <span style="flex-shrink:0;padding:2px 8px;border-radius:5px;background:var(--indigo-dark);color:#fff;font-size:0.7rem;font-weight:800">KR3</span>
+                  <p style="margin:0;font-size:0.88rem;color:#2e4450;line-height:1.5">Work with Iffah to submit targeted tutorials/articles into ActiveCampaign and track their campaign status.</p>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="padding:14px 16px;border-radius:var(--radius);background:var(--indigo-soft);border:1px solid var(--indigo-mid)">
+                <div style="font-size:0.69rem;font-weight:800;color:var(--indigo-dark);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:4px">Weekly Target</div>
+                <div style="font-size:1.8rem;font-weight:900;color:var(--indigo-dark);line-height:1">3</div>
+                <div style="font-size:0.78rem;color:var(--indigo);margin-top:3px">tutorials/articles per week</div>
+              </div>
+              <div style="padding:12px 16px;border-radius:var(--radius);background:var(--green-soft);border:1px solid #a7f3d0">
+                <div style="font-size:0.69rem;font-weight:800;color:#065f46;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:4px">Industrial Focus</div>
+                <div style="font-size:0.84rem;color:#065f46;line-height:1.4">Main priority — with at least 1 article/week for other Cytron topics</div>
+              </div>
+              <div style="padding:12px 16px;border-radius:var(--radius);background:#f5f3ff;border:1px solid #ddd6fe">
+                <div style="font-size:0.69rem;font-weight:800;color:#6d28d9;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:4px">Supporting Actions</div>
+                <div style="font-size:0.84rem;color:#4c1d95;line-height:1.4">Solehin video integration + ActiveCampaign coordination with Iffah</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Objective 2 — Supporting (20%) -->
+        <div style="border:1px solid rgba(31,138,87,0.3);border-radius:var(--radius);background:linear-gradient(135deg,#fff,var(--green-soft));box-shadow:var(--shadow);overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 20px;border-bottom:1px solid rgba(31,138,87,0.18);background:linear-gradient(135deg,#065f46,var(--green))">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;font-size:1rem">🔧</div>
+              <div>
+                <div style="font-size:0.65rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:2px">Supporting Objective</div>
+                <h3 style="margin:0;font-size:0.97rem;font-weight:900;color:#fff">Objective 2: Tutorial Ecosystem Improvement</h3>
+              </div>
+            </div>
+            <div style="flex-shrink:0;padding:5px 15px;border-radius:999px;background:rgba(255,255,255,0.18);border:1.5px solid rgba(255,255,255,0.35);color:#fff;font-size:0.82rem;font-weight:900;white-space:nowrap">20% Weightage</div>
+          </div>
+          <div style="padding:16px 20px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px">
+            <div>
+              <div style="font-size:0.7rem;font-weight:800;color:var(--green);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:7px">Objective</div>
+              <p style="margin:0 0 12px;color:#2e3548;font-size:0.9rem;line-height:1.6">Improve Cytron's tutorial ecosystem by curating existing tutorials, improving tutorial quality, and supporting better customer experience through a structured weekly checklist and nurturing funnel approach.</p>
+              <div style="font-size:0.7rem;font-weight:800;color:var(--green);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:9px">Key Results</div>
+              <div style="display:grid;gap:9px">
+                <div style="display:flex;gap:10px;align-items:flex-start">
+                  <span style="flex-shrink:0;padding:2px 8px;border-radius:5px;background:#065f46;color:#fff;font-size:0.7rem;font-weight:800">KR1</span>
+                  <p style="margin:0;font-size:0.88rem;color:#2e4450;line-height:1.5">Identify and curate existing Cytron tutorials that can be improved, updated, or reused as part of a better tutorial journey.</p>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-start">
+                  <span style="flex-shrink:0;padding:2px 8px;border-radius:5px;background:#065f46;color:#fff;font-size:0.7rem;font-weight:800">KR2</span>
+                  <p style="margin:0;font-size:0.88rem;color:#2e4450;line-height:1.5">Maintain a weekly tutorial improvement checklist to update tutorial structure, accuracy, usability, and funnel readiness for better customer experience.</p>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="padding:12px 16px;border-radius:var(--radius);background:var(--green-soft);border:1px solid #6ee7b7">
+                <div style="font-size:0.69rem;font-weight:800;color:#065f46;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:4px">Focus Areas</div>
+                <ul style="margin:0;padding:0 0 0 14px;font-size:0.84rem;color:#065f46;line-height:1.65">
+                  <li>Curate old/existing tutorials</li>
+                  <li>Improve structure &amp; accuracy</li>
+                  <li>Nurturing funnel readiness</li>
+                  <li>Weekly improvement checklist</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════
+           TARGET CARDS
       ══════════════════════════════════ -->
       <section id="targets">
         <div class="section-heading">
-          <h2><span class="sec-num">1</span> Q3 Target Overview</h2>
-          <p>Three focused targets to drive consistent content output and better campaign connection.</p>
+          <h2><span class="sec-num">2</span> Q3 Target Overview</h2>
+          <p>Four focused targets across both objectives to drive content output, ecosystem quality, and campaign connection.</p>
         </div>
-        <div class="grid three">
+        <div class="grid four">
 
           <article class="card target-card" id="t-industrial">
             <div class="tc-header">
               <div class="tc-icon t1">📝</div>
-              <h3>Industrial Tutorial / Article Production</h3>
+              <h3>Weekly Content Production</h3>
             </div>
             <div class="tc-body">
-              <span class="field-label">Goal</span>
-              <p class="tc-goal">Produce at least 2–3 industrial tutorials or articles per week.</p>
-              <span class="field-label">Measurement</span>
+              <span class="field-label">Target</span>
+              <p class="tc-goal">3 tutorials/articles per week — industrial content as main focus, plus at least 1 article per week for other relevant Cytron topics.</p>
+              <span class="field-label">Focus</span>
               <ul class="bullet-list">
-                <li>Minimum: 2 content pieces per week</li>
-                <li>Ideal: 3 content pieces per week</li>
-                <li>Monthly target: 8–12 content pieces</li>
-                <li>Q3 target: 24–36 content pieces</li>
+                <li>Main focus: Industrial content</li>
+                <li>At least 1 article/week for other Cytron topics</li>
+                <li>Consistent 3 pieces per week output</li>
               </ul>
-              <div class="purpose-box"><strong>Purpose:</strong> Support product visibility, technical education, and marketing campaign readiness.</div>
+              <div class="purpose-box"><strong>Objective 1 — 80%:</strong> Support product visibility, technical education, and marketing campaign readiness.</div>
             </div>
           </article>
 
@@ -468,36 +593,53 @@
               <h3>Solehin Video Integration</h3>
             </div>
             <div class="tc-body">
-              <span class="field-label">Goal</span>
-              <p class="tc-goal">Include suitable Solehin TikTok video content in Cytron YouTube and connect the video back into related articles.</p>
-              <span class="field-label">Measurement</span>
+              <span class="field-label">Focus</span>
+              <p class="tc-goal">Repurpose suitable Solehin TikTok videos into Cytron YouTube content and include the video in related articles where suitable.</p>
+              <span class="field-label">Actions</span>
               <ul class="bullet-list">
-                <li>Identify suitable videos weekly</li>
-                <li>Repurpose selected videos for YouTube</li>
-                <li>Include relevant videos inside tutorial / article pages</li>
+                <li>Check Solehin TikTok video list weekly</li>
+                <li>Repurpose selected videos for Cytron YouTube</li>
+                <li>Embed video into related articles/tutorials</li>
                 <li>Track articles with video support</li>
               </ul>
-              <div class="purpose-box"><strong>Purpose:</strong> Make industrial articles more engaging by combining written content with short-form video explanation.</div>
+              <div class="purpose-box"><strong>Objective 1 — 80%:</strong> Make content more engaging by combining written tutorials with short-form video explanation.</div>
             </div>
           </article>
 
           <article class="card target-card" id="t-ac">
             <div class="tc-header">
               <div class="tc-icon t3">📧</div>
-              <h3>ActiveCampaign Coordination with Iffah</h3>
+              <h3>ActiveCampaign Coordination</h3>
             </div>
             <div class="tc-body">
-              <span class="field-label">Goal</span>
-              <p class="tc-goal">Make sure targeted tutorials are submitted and tracked for ActiveCampaign usage.</p>
-              <span class="field-label">Measurement</span>
+              <span class="field-label">Focus</span>
+              <p class="tc-goal">Work with Iffah to submit targeted tutorials/articles into ActiveCampaign and track submission and campaign status.</p>
+              <span class="field-label">Actions</span>
               <ul class="bullet-list">
-                <li>Identify targeted tutorials for ActiveCampaign</li>
-                <li>Prepare supporting content / copy where needed</li>
-                <li>Coordinate with Iffah for campaign inclusion</li>
-                <li>Track which tutorials are added into ActiveCampaign</li>
-                <li>Monitor clicks, engagement, or sales tracking where possible</li>
+                <li>Identify suitable articles for ActiveCampaign</li>
+                <li>Coordinate submission with Iffah</li>
+                <li>Track campaign status in tracker</li>
               </ul>
-              <div class="purpose-box"><strong>Purpose:</strong> Ensure tutorial content is not only published, but also used in follow-up campaigns to support audience engagement and product interest.</div>
+              <div class="purpose-box"><strong>Objective 1 — 80%:</strong> Ensure published content is also used in follow-up campaigns for audience engagement.</div>
+            </div>
+          </article>
+
+          <article class="card target-card" id="t-ecosystem">
+            <div class="tc-header">
+              <div class="tc-icon" style="background:var(--green-soft)">🔧</div>
+              <h3>Tutorial Ecosystem Improvement</h3>
+            </div>
+            <div class="tc-body">
+              <span class="field-label">Focus</span>
+              <p class="tc-goal">Look for existing Cytron tutorials, curate old tutorials, improve tutorial structure, accuracy, and customer experience.</p>
+              <span class="field-label">Actions</span>
+              <ul class="bullet-list">
+                <li>Identify existing tutorials to curate or improve</li>
+                <li>Improve tutorial structure, accuracy &amp; usability</li>
+                <li>Maintain weekly improvement checklist</li>
+                <li>Prepare tutorials for nurturing funnel usage</li>
+              </ul>
+              <div class="purpose-box"><strong>Objective 2 — 20%:</strong> Build a healthier tutorial ecosystem that supports better customer experience and nurturing readiness.</div>
             </div>
           </article>
 
@@ -505,121 +647,258 @@
       </section>
 
       <!-- ══════════════════════════════════
-           2 — WEEKLY OPERATING RHYTHM
+           3 — WEEKLY CHECKLIST
       ══════════════════════════════════ -->
       <section id="checklist">
         <div class="section-heading">
-          <h2><span class="sec-num">2</span> Weekly Operating Rhythm</h2>
-          <p>A structured weekly workflow to keep content production, video integration, and ActiveCampaign coordination on track throughout Q3.</p>
+          <h2><span class="sec-num">3</span> Weekly Checklist</h2>
+          <p>This checklist is repeated every week from <strong>W01 to W13</strong> (July – September 2026). Each task can be ticked daily using the <strong>Tick</strong> column. Use ☐ for not yet done and ☑ when completed.</p>
         </div>
 
-        <!-- Rhythm Table -->
+        <!-- Tick Legend -->
+        <div style="display:flex;align-items:center;gap:18px;padding:10px 16px;margin-bottom:13px;border:1px solid var(--indigo-mid);border-radius:var(--radius);background:#f8f9ff;font-size:0.85rem;color:var(--muted);flex-wrap:wrap">
+          <strong style="color:var(--ink)">Tick System:</strong>
+          <span>☐ = Not completed</span>
+          <span>☑ = Completed</span>
+          <span style="margin-left:auto;color:var(--indigo-dark);font-size:0.8rem;font-weight:700">Repeats W01 → W13</span>
+        </div>
+
         <div class="table-wrap" style="margin-bottom:13px">
           <div class="table-scroll">
-            <table style="min-width:680px">
+            <table class="checklist-table">
               <thead>
                 <tr>
-                  <th style="width:120px">Day / Period</th>
-                  <th>Main Action</th>
-                  <th style="width:230px">Expected Output</th>
+                  <th style="width:52px">Week</th>
+                  <th style="width:100px">Date Range</th>
+                  <th style="width:110px">Day / Period</th>
+                  <th style="width:46px;text-align:center">Tick</th>
+                  <th>Checklist Task</th>
+                  <th style="width:80px">Objective</th>
+                  <th style="width:190px">Expected Output</th>
+                  <th style="width:110px">Owner / PIC</th>
+                  <th style="width:130px">Notes</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <span class="badge planning" style="font-size:0.75rem;padding:4px 10px">Monday</span>
-                  </td>
-                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
-                    Check Solehin TikTok video list from Google Drive and draft the 1st industrial article.
-                  </td>
-                  <td style="color:var(--green);font-size:0.85rem;font-weight:700">
-                    1st article draft started
-                  </td>
+
+                <!-- ── MONDAY ── -->
+                <tr class="period-group">
+                  <td class="td-week" rowspan="3">W01–W13</td>
+                  <td class="td-range" rowspan="3">Each week</td>
+                  <td class="td-day monday" rowspan="3">Monday</td>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Check Solehin TikTok video list from Google Drive</td>
+                  <td><span class="obj-badge obj1">Obj 1</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">Video list reviewed</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
                 </tr>
                 <tr>
-                  <td>
-                    <span class="badge type-tutorial" style="font-size:0.75rem;padding:4px 10px">Tuesday</span>
-                  </td>
-                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
-                    Upload the 1st YouTube video and publish the 1st industrial article.
-                  </td>
-                  <td style="color:var(--green);font-size:0.85rem;font-weight:700">
-                    1st video uploaded and 1st article published
-                  </td>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Draft 1st tutorial/article</td>
+                  <td><span class="obj-badge obj1">Obj 1</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">1st draft started</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
                 </tr>
                 <tr>
-                  <td>
-                    <span class="badge planning" style="font-size:0.75rem;padding:4px 10px">Wednesday</span>
-                  </td>
-                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
-                    Check Solehin TikTok video list from Google Drive and draft the 2nd industrial article.
-                  </td>
-                  <td style="color:var(--green);font-size:0.85rem;font-weight:700">
-                    2nd article draft started
-                  </td>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Select one existing tutorial to review or improve</td>
+                  <td><span class="obj-badge obj2">Obj 2</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">Tutorial selected for review</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
+                </tr>
+
+                <!-- ── TUESDAY ── -->
+                <tr class="period-group">
+                  <td class="td-week" rowspan="3">W01–W13</td>
+                  <td class="td-range" rowspan="3">Each week</td>
+                  <td class="td-day tuesday" rowspan="3">Tuesday</td>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Upload 1st YouTube video</td>
+                  <td><span class="obj-badge obj1">Obj 1</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">1st video uploaded</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
                 </tr>
                 <tr>
-                  <td>
-                    <span class="badge type-tutorial" style="font-size:0.75rem;padding:4px 10px">Thursday</span>
-                  </td>
-                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
-                    Upload the 2nd YouTube video and publish the 2nd industrial article.
-                  </td>
-                  <td style="color:var(--green);font-size:0.85rem;font-weight:700">
-                    2nd video uploaded and 2nd article published
-                  </td>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Publish 1st tutorial/article</td>
+                  <td><span class="obj-badge obj1">Obj 1</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">1st article published</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
                 </tr>
                 <tr>
-                  <td>
-                    <span class="badge ready" style="font-size:0.75rem;padding:4px 10px">Friday</span>
-                  </td>
-                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
-                    Draft or publish the 3rd article depending on week cycle. Update tracker. Identify suitable article for ActiveCampaign with Iffah.
-                    <div style="margin-top:6px;font-size:0.8rem;color:var(--muted)">
-                      <em>1st week cycle:</em> Draft 3rd article &nbsp;·&nbsp; <em>2nd week cycle:</em> Publish 3rd article
-                    </div>
-                  </td>
-                  <td style="color:var(--green);font-size:0.85rem;font-weight:700">
-                    Tracker updated and ActiveCampaign candidate identified
-                  </td>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Review selected old tutorial structure and customer journey</td>
+                  <td><span class="obj-badge obj2">Obj 2</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">Review notes documented</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
                 </tr>
-                <tr style="background:#fafbff">
-                  <td>
-                    <span class="badge submitted" style="font-size:0.75rem;padding:4px 10px">Monthly</span>
-                  </td>
-                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
-                    Review total published content on YouTube, industrial articles, ActiveCampaign list, and top-performing content.
-                  </td>
-                  <td style="color:var(--indigo-dark);font-size:0.85rem;font-weight:700">
-                    Monthly checkpoint completed
-                  </td>
+
+                <!-- ── WEDNESDAY ── -->
+                <tr class="period-group">
+                  <td class="td-week" rowspan="3">W01–W13</td>
+                  <td class="td-range" rowspan="3">Each week</td>
+                  <td class="td-day wednesday" rowspan="3">Wednesday</td>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Check Solehin TikTok video list from Google Drive</td>
+                  <td><span class="obj-badge obj1">Obj 1</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">Video list reviewed</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
                 </tr>
-                <tr style="background:#f8f8ff">
-                  <td>
-                    <span class="badge completed" style="font-size:0.75rem;padding:4px 10px">Q3 End</span>
-                  </td>
-                  <td style="color:#2e4450;font-size:0.88rem;line-height:1.5">
-                    Summarize published pieces, video integrations, ActiveCampaign results, and lessons learned for appraisal.
-                  </td>
-                  <td style="color:var(--indigo-dark);font-size:0.85rem;font-weight:700">
-                    Q3 appraisal summary prepared
-                  </td>
+                <tr>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Draft 2nd tutorial/article</td>
+                  <td><span class="obj-badge obj1">Obj 1</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">2nd draft started</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
                 </tr>
+                <tr>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Curate old tutorial for nurturing funnel usage</td>
+                  <td><span class="obj-badge obj2">Obj 2</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">Tutorial flagged for funnel</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
+                </tr>
+
+                <!-- ── THURSDAY ── -->
+                <tr class="period-group">
+                  <td class="td-week" rowspan="3">W01–W13</td>
+                  <td class="td-range" rowspan="3">Each week</td>
+                  <td class="td-day thursday" rowspan="3">Thursday</td>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Upload 2nd YouTube video</td>
+                  <td><span class="obj-badge obj1">Obj 1</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">2nd video uploaded</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
+                </tr>
+                <tr>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Publish 2nd tutorial/article</td>
+                  <td><span class="obj-badge obj1">Obj 1</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">2nd article published</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
+                </tr>
+                <tr>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Apply or prepare old tutorial improvement notes</td>
+                  <td><span class="obj-badge obj2">Obj 2</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">Improvement notes applied</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
+                </tr>
+
+                <!-- ── FRIDAY ── -->
+                <tr class="period-group">
+                  <td class="td-week" rowspan="6">W01–W13</td>
+                  <td class="td-range" rowspan="6">Each week</td>
+                  <td class="td-day friday" rowspan="6">Friday</td>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Draft or publish 3rd tutorial/article depending on progress</td>
+                  <td><span class="obj-badge obj1">Obj 1</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">3rd piece on track</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
+                </tr>
+                <tr>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Ensure at least one weekly article covers other Cytron topic if needed</td>
+                  <td><span class="obj-badge obj1">Obj 1</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">Topic mix maintained</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
+                </tr>
+                <tr>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Update Content Tracker and Weekly Checklist</td>
+                  <td><span class="obj-badge both">Both</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">Tracker updated</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
+                </tr>
+                <tr>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Identify suitable article/tutorial for ActiveCampaign with Iffah</td>
+                  <td><span class="obj-badge obj1">Obj 1</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">AC article identified</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me + Iffah</td>
+                  <td class="td-muted">—</td>
+                </tr>
+                <tr>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Update tutorial improvement checklist and blockers</td>
+                  <td><span class="obj-badge obj2">Obj 2</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">Checklist updated</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
+                </tr>
+                <tr>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Review completed items, blockers, and next week follow-up</td>
+                  <td><span class="obj-badge both">Both</span></td>
+                  <td style="font-size:0.83rem;color:var(--green);font-weight:600">Weekly review done</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
+                </tr>
+
+                <!-- ── MONTHLY ── -->
+                <tr class="period-group-monthly" style="background:#fdf4ff">
+                  <td class="td-week">Monthly</td>
+                  <td class="td-range">End of month</td>
+                  <td class="td-day monthly">Monthly</td>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Review total published YouTube videos, tutorials/articles, ActiveCampaign list, old tutorial improvements, and top-performing content</td>
+                  <td><span class="obj-badge both">Both</span></td>
+                  <td style="font-size:0.83rem;color:#7e22ce;font-weight:600">Monthly checkpoint completed</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
+                </tr>
+
+                <!-- ── Q3 END ── -->
+                <tr class="period-group-q3end" style="background:#f0fdf4">
+                  <td class="td-week">Q3 End</td>
+                  <td class="td-range">Sep 2026</td>
+                  <td class="td-day q3end">Q3 End</td>
+                  <td class="tick-cell">☐</td>
+                  <td style="font-size:0.85rem;color:#2e4450">Summarize published pieces, video integrations, ActiveCampaign results, tutorial improvements, and lessons for appraisal</td>
+                  <td><span class="obj-badge both">Both</span></td>
+                  <td style="font-size:0.83rem;color:#065f46;font-weight:600">Q3 appraisal summary prepared</td>
+                  <td style="font-size:0.82rem;color:var(--muted)">Me</td>
+                  <td class="td-muted">—</td>
+                </tr>
+
               </tbody>
             </table>
           </div>
+          <div class="tick-legend">
+            <span>☐ = <strong>Not completed</strong></span>
+            <span>☑ = <strong>Completed</strong></span>
+            <span style="margin-left:8px;color:var(--muted)">|</span>
+            <span><span class="obj-badge obj1">Obj 1</span> = Content Production (80%)</span>
+            <span><span class="obj-badge obj2">Obj 2</span> = Tutorial Ecosystem (20%)</span>
+            <span><span class="obj-badge both">Both</span> = Shared task</span>
+          </div>
         </div>
 
-        <!-- Compact checklist blocks -->
-        <div class="checklist-grid">
+        <!-- Compact checklist blocks (removed — replaced by table above) -->
+        <div class="checklist-grid" style="display:none">
 
           <div class="cl-block">
-            <div class="cl-block-header"><span>📝</span><h4>Industrial Content Production</h4></div>
+            <div class="cl-block-header"><span>📝</span><h4>Weekly Content Production (3/week)</h4></div>
             <div class="cl-block-body">
-              <div class="cl-row"><span class="cb"></span>Confirm 2–3 industrial tutorial / article topics</div>
+              <div class="cl-row"><span class="cb"></span>Confirm 3 tutorial / article topics (industrial + at least 1 other Cytron topic)</div>
               <div class="cl-row"><span class="cb"></span>Draft Article / Tutorial 1</div>
               <div class="cl-row"><span class="cb"></span>Draft Article / Tutorial 2</div>
-              <div class="cl-row"><span class="cb"></span>Draft Article / Tutorial 3, if possible</div>
+              <div class="cl-row"><span class="cb"></span>Draft Article / Tutorial 3</div>
               <div class="cl-row"><span class="cb"></span>Check technical accuracy</div>
               <div class="cl-row"><span class="cb"></span>Check product links</div>
               <div class="cl-row"><span class="cb"></span>Check images / diagrams / screenshots</div>
@@ -650,13 +929,15 @@
           </div>
 
           <div class="cl-block">
-            <div class="cl-block-header"><span>📊</span><h4>Tracking</h4></div>
+            <div class="cl-block-header"><span>🔧</span><h4>Tutorial Ecosystem Improvement</h4></div>
             <div class="cl-block-body">
-              <div class="cl-row"><span class="cb"></span>Update published date</div>
-              <div class="cl-row"><span class="cb"></span>Update article / tutorial URL</div>
+              <div class="cl-row"><span class="cb"></span>Identify existing Cytron tutorials to curate or improve</div>
+              <div class="cl-row"><span class="cb"></span>Review tutorial structure, accuracy &amp; usability</div>
+              <div class="cl-row"><span class="cb"></span>Update tutorial improvement checklist</div>
+              <div class="cl-row"><span class="cb"></span>Flag tutorials ready for nurturing funnel</div>
+              <div class="cl-row"><span class="cb"></span>Update published date &amp; URL in tracker</div>
               <div class="cl-row"><span class="cb"></span>Mark Video Included: Yes / No</div>
               <div class="cl-row"><span class="cb"></span>Mark ActiveCampaign Included: Yes / No</div>
-              <div class="cl-row"><span class="cb"></span>Record view / click baseline</div>
               <div class="cl-row"><span class="cb"></span>Record notes or blockers</div>
             </div>
           </div>
@@ -670,7 +951,7 @@
       ══════════════════════════════════ -->
       <section id="tracker">
         <div class="section-heading">
-          <h2><span class="sec-num">3</span> Content Tracker</h2>
+          <h2><span class="sec-num">4</span> Content Tracker</h2>
           <p>Main execution table synced with <strong>Q3_Weekly_Checklist_Content_Plan_2026</strong>. Update every Friday from the Content Tracker tab.</p>
         </div>
 
@@ -919,7 +1200,7 @@
       ══════════════════════════════════ -->
       <section id="ac-queue">
         <div class="section-heading">
-          <h2><span class="sec-num">4</span> ActiveCampaign Queue</h2>
+          <h2><span class="sec-num">5</span> ActiveCampaign Queue</h2>
           <p>Coordinate with Iffah to ensure targeted tutorials are not only published, but also included in ActiveCampaign follow-up campaigns.</p>
         </div>
         <div class="table-wrap">
@@ -965,20 +1246,21 @@
       ══════════════════════════════════ -->
       <section id="monthly">
         <div class="section-heading">
-          <h2><span class="sec-num">5</span> Monthly Checkpoint</h2>
-          <p>Review progress at the end of each month. Target: 8–12 industrial content pieces per month.</p>
+          <h2><span class="sec-num">6</span> Monthly Checkpoint</h2>
+          <p>Review progress at the end of each month. Target: 12+ content pieces per month (3/week × ~4 weeks).</p>
         </div>
         <div class="grid three">
 
           <article class="card month-card">
             <div class="month-header">
               <h3>July 2026</h3>
-              <span class="month-target">Target: 8–12 pieces</span>
+              <span class="month-target">Target: 12+ pieces</span>
             </div>
             <div class="month-body">
               <div class="track-row"><span class="track-label">Total published</span><div class="track-field">—</div></div>
               <div class="track-row"><span class="track-label">Video-supported content</span><div class="track-field">—</div></div>
               <div class="track-row"><span class="track-label">ActiveCampaign submitted</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">Old tutorials improved</span><div class="track-field">—</div></div>
               <div class="track-row"><span class="track-label">Best performing content</span><div class="track-field">—</div></div>
               <div class="track-row"><span class="track-label">Blockers</span><div class="track-field">—</div></div>
             </div>
@@ -987,12 +1269,13 @@
           <article class="card month-card">
             <div class="month-header">
               <h3>August 2026</h3>
-              <span class="month-target">Target: 8–12 pieces</span>
+              <span class="month-target">Target: 12+ pieces</span>
             </div>
             <div class="month-body">
               <div class="track-row"><span class="track-label">Total published</span><div class="track-field">—</div></div>
               <div class="track-row"><span class="track-label">Video-supported content</span><div class="track-field">—</div></div>
               <div class="track-row"><span class="track-label">ActiveCampaign submitted</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">Old tutorials improved</span><div class="track-field">—</div></div>
               <div class="track-row"><span class="track-label">Best performing content</span><div class="track-field">—</div></div>
               <div class="track-row"><span class="track-label">Blockers</span><div class="track-field">—</div></div>
             </div>
@@ -1001,12 +1284,13 @@
           <article class="card month-card">
             <div class="month-header">
               <h3>September 2026</h3>
-              <span class="month-target">Target: 8–12 pieces</span>
+              <span class="month-target">Target: 12+ pieces</span>
             </div>
             <div class="month-body">
               <div class="track-row"><span class="track-label">Total published</span><div class="track-field">—</div></div>
               <div class="track-row"><span class="track-label">Video-supported content</span><div class="track-field">—</div></div>
               <div class="track-row"><span class="track-label">ActiveCampaign submitted</span><div class="track-field">—</div></div>
+              <div class="track-row"><span class="track-label">Old tutorials improved</span><div class="track-field">—</div></div>
               <div class="track-row"><span class="track-label">Best performing content</span><div class="track-field">—</div></div>
               <div class="track-row"><span class="track-label">Blockers</span><div class="track-field">—</div></div>
             </div>
@@ -1020,14 +1304,14 @@
       ══════════════════════════════════ -->
       <section id="kpi">
         <div class="section-heading">
-          <h2><span class="sec-num">6</span> Q3 Success KPI Summary</h2>
+          <h2><span class="sec-num">7</span> Q3 Success KPI Summary</h2>
           <p>Key targets to evaluate content execution progress at end of Q3.</p>
         </div>
         <div class="grid five">
           <article class="card kpi-card primary-kpi">
-            <span class="kc-label">Industrial Tutorials / Articles</span>
-            <strong class="kc-target">24–36</strong>
-            <span class="kc-sub">pieces across Q3</span>
+            <span class="kc-label">Total Tutorials / Articles</span>
+            <strong class="kc-target">36+</strong>
+            <span class="kc-sub">3/week across Q3</span>
           </article>
           <article class="card kpi-card">
             <span class="kc-label">Video-supported Articles</span>
@@ -1040,9 +1324,9 @@
             <span class="kc-sub">coordinated with Iffah</span>
           </article>
           <article class="card kpi-card">
-            <span class="kc-label">Monthly Checkpoints</span>
-            <strong class="kc-target">3</strong>
-            <span class="kc-sub">July, August, September</span>
+            <span class="kc-label">Old Tutorials Improved</span>
+            <strong class="kc-target">TBD</strong>
+            <span class="kc-sub">curated &amp; updated for funnel</span>
           </article>
           <article class="card kpi-card">
             <span class="kc-label">Weekly Tracker Updates</span>
@@ -1057,13 +1341,13 @@
       ══════════════════════════════════ -->
       <section id="summary">
         <div class="section-heading">
-          <h2><span class="sec-num">7</span> Q3 Focus Summary</h2>
+          <h2><span class="sec-num">8</span> Q3 Focus Summary</h2>
         </div>
         <article class="card summary-card">
-          <p>For Q3, my focus is to build from the Q2 tutorial visibility work by producing consistent industrial tutorial and article content, connecting Solehin's video content with related articles, and working closely with Iffah to ensure targeted tutorials are included in ActiveCampaign. The latest planning sheet, <strong>Q3_Weekly_Checklist_Content_Plan_2026</strong>, will be used as the main tracker for weekly progress, content execution, and campaign coordination.</p>
+          <p>For Q3, my focus is divided into 2 objectives. Objective 1 carries 80% weightage and focuses on producing 3 tutorials/articles per week, with industrial content as the main priority while still covering other relevant Cytron topics. Objective 2 carries 20% weightage and focuses on improving Cytron's existing tutorial ecosystem through tutorial curation, weekly checks, content improvement, and nurturing funnel readiness. The latest planning sheet, <strong>Q3_Weekly_Checklist_Content_Plan_2026</strong>, will be used as the main tracker for weekly progress, content execution, and campaign coordination.</p>
         </article>
         <div class="insight" style="margin-top:11px">
-          Q3 targets are structured to be <strong>measurable and trackable</strong> — weekly checklist updated every Friday, content tracker as the main execution log, and monthly checkpoint reviews for July, August, and September.
+          Q3 targets are structured to be <strong>measurable and trackable</strong> — weekly checklist updated every Friday (including tutorial improvement checklist), content tracker as the main execution log, and monthly checkpoint reviews for July, August, and September.
         </div>
       </section>
 
